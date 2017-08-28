@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\PDT Project\- svn\pdt_es01_server\bin\Debug\pdt_es01_server.exe.config
+C:\Users\Administrator\Desktop\PDT Project\- svn\pdt_es01_server\bin\Debug\pdt_es01_server.exe
+C:\Users\Administrator\Desktop\PDT Project\- svn\pdt_es01_server\bin\Debug\pdt_es01_server.pdb
+C:\Users\Administrator\Desktop\PDT Project\- svn\pdt_es01_server\bin\Debug\pdt_es01_server.xml
+C:\Users\Administrator\Desktop\PDT Project\- svn\pdt_es01_server\obj\Debug\pdt_es01_server.Form1.resources
+C:\Users\Administrator\Desktop\PDT Project\- svn\pdt_es01_server\obj\Debug\pdt_es01_server.Resources.resources
+C:\Users\Administrator\Desktop\PDT Project\- svn\pdt_es01_server\obj\Debug\pdt_es01_server.vbproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\PDT Project\- svn\pdt_es01_server\obj\Debug\pdt_es01_server.exe
+C:\Users\Administrator\Desktop\PDT Project\- svn\pdt_es01_server\obj\Debug\pdt_es01_server.xml
+C:\Users\Administrator\Desktop\PDT Project\- svn\pdt_es01_server\obj\Debug\pdt_es01_server.pdb

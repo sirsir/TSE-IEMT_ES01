@@ -1,0 +1,110 @@
+﻿Public Class frmClentSample
+    Private m_dtEngineView As DataSet1.V_WORKING_DATA_STATICDataTable
+    Private m_dtWorkingString As DataSet1.WORKING_DATA_STRDataTable
+    Private m_dtWorkingInteger As DataSet1.WORKING_DATA_INTDataTable
+    Private m_dtWorkingDatetime As DataSet1.WORKING_DATA_DATETIMEDataTable
+    Private m_dtSettingColumns As DataSet1.V_SETTING_COLUMNSDataTable
+
+    Private m_taEngineView As DataSet1TableAdapters.V_WORKING_DATA_STATICTableAdapter
+    Private m_taWorkingString As DataSet1TableAdapters.WORKING_DATA_STRTableAdapter
+    Private m_taWorkingInteger As DataSet1TableAdapters.WORKING_DATA_INTTableAdapter
+    Private m_taWorkingDatetime As DataSet1TableAdapters.WORKING_DATA_DATETIMETableAdapter
+    Private m_taSettingColumns As DataSet1TableAdapters.V_SETTING_COLUMNSTableAdapter
+
+    'Friend WithEvents m_objPivotGrid As ctrlPivotGrid
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            LoadData()
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+    End Sub
+
+    Public Sub LoadData()
+        'm_taEngineView.FillAllRevEngIdAndWorkingTypeId(m_dtEngineView, 6, 2)
+        'm_dtWorkingString = Nothing
+        'm_dtWorkingInteger = Nothing
+        'm_dtWorkingDatetime = Nothing
+        'm_taSettingColumns = Nothing
+        m_dtEngineView = m_taEngineView.GetAllRevByEngIdAndWorkingTypeId(38, 11)
+        m_dtWorkingString = m_taWorkingString.GetDataByWorkingTypeId(11)
+        m_dtWorkingInteger = m_taWorkingInteger.GetDataByWorkingTypeId(11)
+        m_dtWorkingDatetime = m_taWorkingDatetime.GetDataByWorkingTypeId(11)
+        m_dtSettingColumns = m_taSettingColumns.GetWorkingColumns(11)
+        Dim astrDisplayColNames() As String = {"LINE_ON_TIME" _
+                                              , "ENGINE_NO" _
+                                              , "MODEL_CODE" _
+                                              , "LOT_NO"}
+
+        CtrlPivotGrid1.SetDataSource(m_dtEngineView _
+                                           , m_dtWorkingString _
+                                           , m_dtWorkingInteger _
+                                           , m_dtWorkingDatetime _
+                                           , m_dtSettingColumns _
+                                           , {"ENGINE_ID", "REV_NO"} _
+                                           , "WORKING_COLUMNS_ID" _
+                                           , {"ENGINE_ID", "REV_NO"} _
+                                           , "DATA" _
+                                           , astrDisplayColNames _
+                                           , False)
+
+        'CtrlPivotGrid1.SetDataSource(m_dtEngineView _
+        '                                   , Nothing _
+        '                                   , Nothing _
+        '                                   , Nothing _
+        '                                   , Nothing _
+        '                                   , Nothing _
+        '                                   , Nothing _
+        '                                   , Nothing _
+        '                                   , Nothing _
+        '                                   , Nothing _
+        '                                   , False)
+
+    End Sub
+
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        m_dtEngineView = New DataSet1.V_WORKING_DATA_STATICDataTable
+        m_dtWorkingString = New DataSet1.WORKING_DATA_STRDataTable
+        m_dtWorkingInteger = New DataSet1.WORKING_DATA_INTDataTable
+        m_dtWorkingDatetime = New DataSet1.WORKING_DATA_DATETIMEDataTable
+        m_dtSettingColumns = New DataSet1.V_SETTING_COLUMNSDataTable
+        'm_objPivotGrid = New ctrlPivotGrid
+        m_taEngineView = New DataSet1TableAdapters.V_WORKING_DATA_STATICTableAdapter
+        m_taWorkingString = New DataSet1TableAdapters.WORKING_DATA_STRTableAdapter
+        m_taWorkingInteger = New DataSet1TableAdapters.WORKING_DATA_INTTableAdapter
+        m_taWorkingDatetime = New DataSet1TableAdapters.WORKING_DATA_DATETIMETableAdapter
+        m_taSettingColumns = New DataSet1TableAdapters.V_SETTING_COLUMNSTableAdapter
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'Try/Catch exception in every event, not in every function
+        Try
+            LoadData()
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+    End Sub
+
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        Dim i As Integer = 0
+        SaveFileDialog1.FileName = Now.ToString("yyyyMMddHHmmss") & ".xlsx"
+        Dim objExcel As New clsGridToExcel
+        Try
+            If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
+                objExcel.WriteDataToExcel(Me.CtrlPivotGrid1 _
+                                          , Me.Name & ".xlsx" _
+                                          , SaveFileDialog1.FileName)
+            End If
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+
+    End Sub
+
+End Class

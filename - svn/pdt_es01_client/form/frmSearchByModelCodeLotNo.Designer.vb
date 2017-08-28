@@ -1,0 +1,112 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmSearchByModelCodeLotNo
+    'Inherits System.Windows.Forms.Form
+    Inherits frmSearch
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBoxIn1 = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBoxIn2 = New System.Windows.Forms.TextBox()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(8, 7)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(8, 0, 8, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(170, 36)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Model code"
+        '
+        'TextBoxIn1
+        '
+        Me.TextBoxIn1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.TextBoxIn1.Location = New System.Drawing.Point(208, 8)
+        Me.TextBoxIn1.Margin = New System.Windows.Forms.Padding(8)
+        Me.TextBoxIn1.Name = "TextBoxIn1"
+        Me.TextBoxIn1.Size = New System.Drawing.Size(184, 41)
+        Me.TextBoxIn1.TabIndex = 1
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(8, 57)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(8, 0, 8, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(112, 36)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Lot No."
+        '
+        'TextBoxIn2
+        '
+        Me.TextBoxIn2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.TextBoxIn2.Location = New System.Drawing.Point(208, 58)
+        Me.TextBoxIn2.Margin = New System.Windows.Forms.Padding(8)
+        Me.TextBoxIn2.Name = "TextBoxIn2"
+        Me.TextBoxIn2.Size = New System.Drawing.Size(184, 41)
+        Me.TextBoxIn2.TabIndex = 2
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.TextBoxIn2, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.TextBoxIn1, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label2, 0, 1)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(145, 209)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 2
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(400, 100)
+        Me.TableLayoutPanel1.TabIndex = 4
+        '
+        'frmSearchByModelCodeLotNo
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(17.0!, 33.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(1348, 665)
+        Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(23, 20, 23, 20)
+        Me.Name = "frmSearchByModelCodeLotNo"
+        Me.ShowInTaskbar = False
+        Me.Controls.SetChildIndex(Me.TableLayoutPanel1, 0)
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents TextBoxIn1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents TextBoxIn2 As System.Windows.Forms.TextBox
+    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
+End Class

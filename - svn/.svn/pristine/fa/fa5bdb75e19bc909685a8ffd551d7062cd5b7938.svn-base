@@ -1,0 +1,177 @@
+﻿Public Class frmProductionData
+    'Dim m_taEngineList As DataSet1TableAdapters.ENGINE_LISTTableAdapter
+
+    
+
+    Private Sub frmProductionData_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        InitializeControls()
+
+
+
+        Dim hCtrls As New Hashtable
+        hCtrls("ButtonDELETE") = 0.1
+        hCtrls("ButtonMAINMENU") = 0.9
+        hCtrls("ButtonPRINT") = 0.5
+        hCtrls("ButtonCANCEL") = 0.7
+
+        ShowOnlyControls(hCtrls)
+
+
+        '-------- Initialize table
+
+        m_dtWorkingString = Nothing
+        m_dtWorkingInteger = Nothing
+        m_dtWorkingDatetime = Nothing
+        m_taSettingColumns = Nothing
+
+        'MsgBox(modGlobalVariables.searchBy)
+
+
+        If modGlobalVariables.searchBy = modGlobalVariables.SEARCH_BY.ENGINE_NO Then
+            'm_dtEngineList = m_taEngineList.GetDataByEngineNo(modGlobalVariables.in_engineNo)
+            m_dtEngineList = m_taEngineList.GetDataByEngineNo(modGlobalVariables.arrIn(0))
+
+
+            'm_dtEngineList.Clear()
+
+            'm_dtEngineList.
+
+
+        ElseIf modGlobalVariables.searchBy = modGlobalVariables.SEARCH_BY.MODEL_CODE_LOT_NO Then
+            'Dim m_taEngineList = New DataSet1TableAdapters.ENGINE_LISTTableAdapter
+            'MsgBox(modGlobalVariables.arrIn(1))
+
+
+
+            m_dtEngineList = m_taEngineList.GetDataByModelCodeLotNo(modGlobalVariables.arrIn(0), modGlobalVariables.arrIn(1))
+            'm_dtEngineList = m_taEngineList.GetDataByEngineNo("NL9506")
+        End If
+
+
+        'm_dtWorkingString = m_taWorkingString.GetDataByWorkingTypeId(11)
+        'm_dtWorkingInteger = m_taWorkingInteger.GetDataByWorkingTypeId(11)
+        'm_dtWorkingDatetime = m_taWorkingDatetime.GetDataByWorkingTypeId(11)
+        'm_dtSettingColumns = m_taSettingColumns.GetWorkingColumns(11)
+        'Dim strHiddenColNames() As String = {"ENGINE_ID"}
+        Dim strHiddenColNames() As String = {"ENGINE_NO", "MODEL_CODE", "LOT_NO", "UNIT_NO", "ENGINE_TYPE", "ENGINE_ASM_NO", "LINE_ON_TIME", "LINE_OFF_TIME", "BOOK", "YEAR", "AT_MT", "EMISSION", "INJ_MODEL_CODE" _
+                                              , "SPARE_001" _
+                                              , "SB_DATA_SB_PARTS_NO" _
+                                              , "SB_DATA_SB_SERIAL_NO" _
+                                              , "SB_DATA_GASKET_GRADE" _
+                                              , "RPCOCF_SBLO_BCT" _
+                                              , "RPCOCF_SBLO_CRT" _
+                                              , "RPCOCF_SBLO_CTM" _
+                                              , "RPCOCF_SBLO_SPARE01" _
+                                              , "RPCOCF_SBLO_SPARE02" _
+                                              , "RPCOCF_SBLO_SPARE03" _
+                                              , "RPCOCF_MALO_CCT" _
+                                              , "RPCOCF_MALO_DPT" _
+                                              , "RPCOCF_MALO_FWT" _
+                                              , "RPCOCF_MALO_SPARE01" _
+                                              , "RPCOCF_MALO_SPARE02" _
+                                              , "RPCOCF_MALO_SPARE03" _
+                                              , "RPCOCF_MBLO_HDT" _
+                                              , "RPCOCF_MBLO_CCT" _
+                                              , "RPCOCF_MBLO_HCT" _
+                                              , "RPCOCF_MBLO_PPT" _
+                                              , "RPCOCF_MBLO_SPARE01" _
+                                              , "RPCOCF_MBLO_SPARE02" _
+                                              , "RPCOCF_MBLO_SPARE03" _
+                                              , "RPCOCF_MBLO_SPARE04" _
+                                              , "INSPSJ_INSPECTION01" _
+                                              , "INSPSJ_INSPECTION02" _
+                                              , "INSPSJ_INSPECTION03" _
+                                              , "INSPSJ_INSPECTION04" _
+                                              , "INSPSJ_INSPECTION05" _
+                                              , "INSPSJ_INSPECTION06" _
+                                              , "INSPSJ_INSPECTION_TIME01" _
+                                              , "INSPSJ_INSPECTION11" _
+                                              , "INSPSJ_INSPECTION12" _
+                                              , "INSPSJ_INSPECTION13" _
+                                              , "INSPSJ_INSPECTION14" _
+                                              , "INSPSJ_INSPECTION15" _
+                                              , "INSPSJ_INSPECTION16" _
+                                              , "INSPSJ_INSPECTION_TIME02" _
+                                              , "UPDATED_BY" _
+                                              , "CREATED_WHEN" _
+                                              , "UPDATED_WHEN"}
+
+        Try
+            'LoadData(m_dtEngineList _
+            CtrlPivotGrid1.SetDataSource(m_dtEngineList _
+                                           , m_dtWorkingString _
+                                           , m_dtWorkingInteger _
+                                           , m_dtWorkingDatetime _
+                                           , m_dtSettingColumns _
+                                           , {"ID"} _
+                                           , "WORKING_COLUMNS_ID" _
+                                           , {"ENGINE_ID"} _
+                                           , "DATA" _
+                                           , strHiddenColNames)
+            
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+    End Sub
+
+    Protected Overrides Sub InitializeVariables()
+        ' Add any initialization after the InitializeComponent() call.
+        If modGlobalVariables.tabletype = modGlobalVariables.TABLE2SHOW.ENGINE_LIST Then
+            m_dtEngineList = New DataSet1.ENGINE_LISTDataTable
+        End If
+
+        m_dtWorkingString = New DataSet1.WORKING_DATA_STRDataTable
+        m_dtWorkingInteger = New DataSet1.WORKING_DATA_INTDataTable
+        m_dtWorkingDatetime = New DataSet1.WORKING_DATA_DATETIMEDataTable
+        m_dtSettingColumns = New DataSet1.V_SETTING_COLUMNSDataTable
+        'm_objPivotGrid = New ctrlPivotGrid
+        If modGlobalVariables.tabletype = modGlobalVariables.TABLE2SHOW.ENGINE_LIST Then
+            m_taEngineList = New DataSet1TableAdapters.ENGINE_LISTTableAdapter
+
+            'm_taEngineList = DirectCast(New DataSet1TableAdapters.ENGINE_LISTTableAdapter, DataSet1TableAdapters.ENGINE_LISTTableAdapter)
+            'Dim m_taEngineList = DirectCast(New DataSet1TableAdapters.ENGINE_LISTTableAdapter, DataSet1TableAdapters.ENGINE_LISTTableAdapter)
+            'm_taEngineList.getdata
+        End If
+
+        m_taWorkingString = New DataSet1TableAdapters.WORKING_DATA_STRTableAdapter
+        m_taWorkingInteger = New DataSet1TableAdapters.WORKING_DATA_INTTableAdapter
+        m_taWorkingDatetime = New DataSet1TableAdapters.WORKING_DATA_DATETIMETableAdapter
+        m_taSettingColumns = New DataSet1TableAdapters.V_SETTING_COLUMNSTableAdapter
+    End Sub
+
+
+
+    Protected Overrides Sub ButtonDELETE_Click(sender As Object, e As EventArgs)
+        Dim selectedRowCount As Integer = CtrlPivotGrid1.Rows.GetRowCount(DataGridViewElementStates.Selected)
+
+        If selectedRowCount = 1 Then
+            'modGlobalVariables.reset()
+
+            MsgBox(CtrlPivotGrid1.SelectedRows(0).Cells("ID").Value.ToString())
+
+
+            Exit Sub
+
+
+
+
+            Dim selectedLot As String = CtrlPivotGrid1.SelectedRows(0).Cells("LOT_NO").Value.ToString()
+            Dim selectedModelCode As String = CtrlPivotGrid1.SelectedRows(0).Cells("MODEL_CODE").Value.ToString()
+
+            'For i As Integer = 0 To CtrlPivotGrid1.Rows.GetRowCount(DataGridViewElementStates.None)
+            For Each row As DataGridViewRow In CtrlPivotGrid1.Rows
+                If row.Cells("LOT_NO").Value.ToString() = selectedLot And row.Cells("MODEL_CODE").Value.ToString() = selectedModelCode Then
+                    row.Selected = True
+                End If
+            Next
+
+
+
+            'MsgBox(selectedLot)
+
+
+
+
+        End If
+    End Sub
+End Class

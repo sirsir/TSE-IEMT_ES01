@@ -1,0 +1,128 @@
+﻿Imports System.Text.RegularExpressions
+
+Module modValidate
+
+
+
+    Public Class ValidationParam
+        Private regexp As String
+        Private title As String
+        Private message As String
+        Private button As MessageBoxButtons
+        Private icon As MessageBoxIcon
+
+        Public Sub New(ByVal _regexp As String, ByVal _title As String, ByVal _message As String, Optional ByVal _button As MessageBoxButtons = Nothing, Optional _icon As MessageBoxIcon = Nothing)
+            regexp = _regexp
+            title = _title
+            message = _message
+            If _button = Nothing Then
+                button = MessageBoxButtons.OK
+            Else
+                button = _button
+            End If
+
+            If _icon = Nothing Then
+                icon = MessageBoxIcon.None
+            Else
+                icon = _icon
+            End If
+
+
+        End Sub
+
+
+        Public Sub MyMessageBox()
+            MessageBox.Show(message, title, button, icon)
+        End Sub
+
+        Public Function CheckFormat(ByVal strIn As String) As Boolean
+
+
+            If regexp = "" Then
+                Return True
+            End If
+
+            Dim regexpTemp As Regex = New Regex(regexp)
+            'MsgBox(regexp)
+            'MsgBox(strIn)
+
+            If Not regexpTemp.IsMatch(strIn) Then
+                'MessageBox.Show(message, title, button, icon)
+                MyMessageBox()
+                Return False
+            Else
+                Return True
+            End If
+
+
+        End Function
+
+
+    End Class
+
+
+    Public Class ValidationParamSet
+        Public Shared ENGINE_NO As ValidationParam = _
+            New ValidationParam(
+                                 "^[A-Za-z]{2}[0-9]{4}$", _
+                                 "", _
+                                 Regex.Unescape("Please check Engine No.\nOnly 2 characters (A-Z) and 4 numbers (0-9) are accepted") _
+                                    )
+      
+
+        Public Shared MODEL_CODE As ValidationParam = _
+            New ValidationParam(
+                                 "^[0-9]{3}[A-Za-z]{5}$", _
+                                 "", _
+                                 Regex.Unescape("Please check Model Code.\nOnly 3 numbers(0-9) and 5 characters (A-Z) +0 are accepted") _
+                                    )
+
+        Public Shared LOT_NO As ValidationParam = _
+            New ValidationParam(
+                                 "^[0-9]{4}$", _
+                                 "", _
+                                 Regex.Unescape("Please check Lot No.\nOnly 4 numbers(0-9) are accepted") _
+                                    )
+
+        Public Shared LOT_NO2 As ValidationParam = _
+            New ValidationParam(
+                                 "^.+$", _
+                                 "Warning", _
+                                 "Please input Lot No.", _
+                                 Nothing, _
+                                 MessageBoxIcon.Error _
+                                    )
+
+
+        Public Shared PRODUCTION_DATE As ValidationParam = _
+            New ValidationParam(
+                                 "^[0-9]{8}$", _
+                                 "", _
+                                 Regex.Unescape("Please check Production Date.\n Only 8 numbers(0-9) YYYYMMDD are accepted."), _
+                                    )
+
+        Public Shared PRODUCTION_DATE_FROM As ValidationParam = _
+            New ValidationParam(
+                                 "^.+$", _
+                                 "Warning", _
+                                 "Please input FROM", _
+                                 Nothing, _
+                                 MessageBoxIcon.Error _
+                                    )
+
+
+        Public Shared PRODUCTION_DATE_TO As ValidationParam = _
+            New ValidationParam(
+                                 "^.+$", _
+                                 "Warning", _
+                                 "Please input TO", _
+                                 Nothing, _
+                                 MessageBoxIcon.Error _
+                                    )
+
+
+
+    End Class
+
+
+End Module

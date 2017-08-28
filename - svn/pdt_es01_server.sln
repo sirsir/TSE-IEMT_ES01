@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "pdt_es01_server", "pdt_es01_server\pdt_es01_server.vbproj", "{DE61BFA8-F5A3-492D-9733-38D82225682E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "pdt_es01_client", "pdt_es01_client\pdt_es01_client.vbproj", "{56E6C756-5E00-4910-8445-6A9AF7AAECA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE61BFA8-F5A3-492D-9733-38D82225682E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE61BFA8-F5A3-492D-9733-38D82225682E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE61BFA8-F5A3-492D-9733-38D82225682E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE61BFA8-F5A3-492D-9733-38D82225682E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56E6C756-5E00-4910-8445-6A9AF7AAECA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56E6C756-5E00-4910-8445-6A9AF7AAECA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56E6C756-5E00-4910-8445-6A9AF7AAECA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56E6C756-5E00-4910-8445-6A9AF7AAECA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

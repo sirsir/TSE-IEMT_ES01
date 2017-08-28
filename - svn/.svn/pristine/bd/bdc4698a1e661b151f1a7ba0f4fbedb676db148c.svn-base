@@ -1,0 +1,8 @@
+﻿Public Class frmSample
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DataSet1.ENGINE_LIST' table. You can move, or remove it, as needed.
+        Me.ENGINE_LISTTableAdapter.Fill(Me.DataSet1.ENGINE_LIST)
+        Me.DataSet1.ENGINE_LIST.Select("ENG_NO =" & "guygygu")
+    End Sub
+End Class

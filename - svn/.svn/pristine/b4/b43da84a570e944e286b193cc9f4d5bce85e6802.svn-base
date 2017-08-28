@@ -1,0 +1,658 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmSample
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataSet1 = New pdt_es01_server.DataSet1()
+        Me.ENGINELISTBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ENGINE_LISTTableAdapter = New pdt_es01_server.DataSet1TableAdapters.ENGINE_LISTTableAdapter()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ENGINETYPEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ENGINENODataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ENGINEASMNODataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BOOKDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.YEARDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MODELCODEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LOTNODataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UNITNODataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ATMTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EMISSIONDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INJMODELCODEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE001DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE002DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE003DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE004DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE005DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE006DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE007DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE008DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE009DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE010DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE011DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE012DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE013DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE014DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE015DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE016DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SPARE017DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SBDATASBPARTSNODataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SBDATASBSERIALNODataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SBDATAGASKETGRADEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LINEONTIMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LINEOFFTIMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFSBLOBCTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFSBLOCRTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFSBLOCTMDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFSBLOSPARE01DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFSBLOSPARE02DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFSBLOSPARE03DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMALOCCTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMALODPTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMALOFWTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMALOSPARE01DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMALOSPARE02DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMALOSPARE03DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMBLOHDTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMBLOCCTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMBLOHCTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMBLOPPTDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMBLOSPARE01DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMBLOSPARE02DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMBLOSPARE03DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RPCOCFMBLOSPARE04DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTION01DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTION02DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTION03DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTION04DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTION05DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTION06DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTIONTIME01DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTION11DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTION12DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTION13DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTION14DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTION15DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTION16DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INSPSJINSPECTIONTIME02DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CREATEDBYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UPDATEDBYDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CREATEDWHENDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UPDATEDWHENDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ENGINELISTBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.ENGINETYPEDataGridViewTextBoxColumn, Me.ENGINENODataGridViewTextBoxColumn, Me.ENGINEASMNODataGridViewTextBoxColumn, Me.BOOKDataGridViewTextBoxColumn, Me.YEARDataGridViewTextBoxColumn, Me.MODELCODEDataGridViewTextBoxColumn, Me.LOTNODataGridViewTextBoxColumn, Me.UNITNODataGridViewTextBoxColumn, Me.ATMTDataGridViewTextBoxColumn, Me.EMISSIONDataGridViewTextBoxColumn, Me.INJMODELCODEDataGridViewTextBoxColumn, Me.SPARE001DataGridViewTextBoxColumn, Me.SPARE002DataGridViewTextBoxColumn, Me.SPARE003DataGridViewTextBoxColumn, Me.SPARE004DataGridViewTextBoxColumn, Me.SPARE005DataGridViewTextBoxColumn, Me.SPARE006DataGridViewTextBoxColumn, Me.SPARE007DataGridViewTextBoxColumn, Me.SPARE008DataGridViewTextBoxColumn, Me.SPARE009DataGridViewTextBoxColumn, Me.SPARE010DataGridViewTextBoxColumn, Me.SPARE011DataGridViewTextBoxColumn, Me.SPARE012DataGridViewTextBoxColumn, Me.SPARE013DataGridViewTextBoxColumn, Me.SPARE014DataGridViewTextBoxColumn, Me.SPARE015DataGridViewTextBoxColumn, Me.SPARE016DataGridViewTextBoxColumn, Me.SPARE017DataGridViewTextBoxColumn, Me.SBDATASBPARTSNODataGridViewTextBoxColumn, Me.SBDATASBSERIALNODataGridViewTextBoxColumn, Me.SBDATAGASKETGRADEDataGridViewTextBoxColumn, Me.LINEONTIMEDataGridViewTextBoxColumn, Me.LINEOFFTIMEDataGridViewTextBoxColumn, Me.RPCOCFSBLOBCTDataGridViewTextBoxColumn, Me.RPCOCFSBLOCRTDataGridViewTextBoxColumn, Me.RPCOCFSBLOCTMDataGridViewTextBoxColumn, Me.RPCOCFSBLOSPARE01DataGridViewTextBoxColumn, Me.RPCOCFSBLOSPARE02DataGridViewTextBoxColumn, Me.RPCOCFSBLOSPARE03DataGridViewTextBoxColumn, Me.RPCOCFMALOCCTDataGridViewTextBoxColumn, Me.RPCOCFMALODPTDataGridViewTextBoxColumn, Me.RPCOCFMALOFWTDataGridViewTextBoxColumn, Me.RPCOCFMALOSPARE01DataGridViewTextBoxColumn, Me.RPCOCFMALOSPARE02DataGridViewTextBoxColumn, Me.RPCOCFMALOSPARE03DataGridViewTextBoxColumn, Me.RPCOCFMBLOHDTDataGridViewTextBoxColumn, Me.RPCOCFMBLOCCTDataGridViewTextBoxColumn, Me.RPCOCFMBLOHCTDataGridViewTextBoxColumn, Me.RPCOCFMBLOPPTDataGridViewTextBoxColumn, Me.RPCOCFMBLOSPARE01DataGridViewTextBoxColumn, Me.RPCOCFMBLOSPARE02DataGridViewTextBoxColumn, Me.RPCOCFMBLOSPARE03DataGridViewTextBoxColumn, Me.RPCOCFMBLOSPARE04DataGridViewTextBoxColumn, Me.INSPSJINSPECTION01DataGridViewTextBoxColumn, Me.INSPSJINSPECTION02DataGridViewTextBoxColumn, Me.INSPSJINSPECTION03DataGridViewTextBoxColumn, Me.INSPSJINSPECTION04DataGridViewTextBoxColumn, Me.INSPSJINSPECTION05DataGridViewTextBoxColumn, Me.INSPSJINSPECTION06DataGridViewTextBoxColumn, Me.INSPSJINSPECTIONTIME01DataGridViewTextBoxColumn, Me.INSPSJINSPECTION11DataGridViewTextBoxColumn, Me.INSPSJINSPECTION12DataGridViewTextBoxColumn, Me.INSPSJINSPECTION13DataGridViewTextBoxColumn, Me.INSPSJINSPECTION14DataGridViewTextBoxColumn, Me.INSPSJINSPECTION15DataGridViewTextBoxColumn, Me.INSPSJINSPECTION16DataGridViewTextBoxColumn, Me.INSPSJINSPECTIONTIME02DataGridViewTextBoxColumn, Me.CREATEDBYDataGridViewTextBoxColumn, Me.UPDATEDBYDataGridViewTextBoxColumn, Me.CREATEDWHENDataGridViewTextBoxColumn, Me.UPDATEDWHENDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.ENGINELISTBindingSource
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(676, 150)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ENGINELISTBindingSource
+        '
+        Me.ENGINELISTBindingSource.DataMember = "ENGINE_LIST"
+        Me.ENGINELISTBindingSource.DataSource = Me.DataSet1
+        '
+        'ENGINE_LISTTableAdapter
+        '
+        Me.ENGINE_LISTTableAdapter.ClearBeforeFill = True
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ENGINETYPEDataGridViewTextBoxColumn
+        '
+        Me.ENGINETYPEDataGridViewTextBoxColumn.DataPropertyName = "ENGINE_TYPE"
+        Me.ENGINETYPEDataGridViewTextBoxColumn.HeaderText = "ENGINE_TYPE"
+        Me.ENGINETYPEDataGridViewTextBoxColumn.Name = "ENGINETYPEDataGridViewTextBoxColumn"
+        '
+        'ENGINENODataGridViewTextBoxColumn
+        '
+        Me.ENGINENODataGridViewTextBoxColumn.DataPropertyName = "ENGINE_NO"
+        Me.ENGINENODataGridViewTextBoxColumn.HeaderText = "ENGINE_NO"
+        Me.ENGINENODataGridViewTextBoxColumn.Name = "ENGINENODataGridViewTextBoxColumn"
+        '
+        'ENGINEASMNODataGridViewTextBoxColumn
+        '
+        Me.ENGINEASMNODataGridViewTextBoxColumn.DataPropertyName = "ENGINE_ASM_NO"
+        Me.ENGINEASMNODataGridViewTextBoxColumn.HeaderText = "ENGINE_ASM_NO"
+        Me.ENGINEASMNODataGridViewTextBoxColumn.Name = "ENGINEASMNODataGridViewTextBoxColumn"
+        '
+        'BOOKDataGridViewTextBoxColumn
+        '
+        Me.BOOKDataGridViewTextBoxColumn.DataPropertyName = "BOOK"
+        Me.BOOKDataGridViewTextBoxColumn.HeaderText = "BOOK"
+        Me.BOOKDataGridViewTextBoxColumn.Name = "BOOKDataGridViewTextBoxColumn"
+        '
+        'YEARDataGridViewTextBoxColumn
+        '
+        Me.YEARDataGridViewTextBoxColumn.DataPropertyName = "YEAR"
+        Me.YEARDataGridViewTextBoxColumn.HeaderText = "YEAR"
+        Me.YEARDataGridViewTextBoxColumn.Name = "YEARDataGridViewTextBoxColumn"
+        '
+        'MODELCODEDataGridViewTextBoxColumn
+        '
+        Me.MODELCODEDataGridViewTextBoxColumn.DataPropertyName = "MODEL_CODE"
+        Me.MODELCODEDataGridViewTextBoxColumn.HeaderText = "MODEL_CODE"
+        Me.MODELCODEDataGridViewTextBoxColumn.Name = "MODELCODEDataGridViewTextBoxColumn"
+        '
+        'LOTNODataGridViewTextBoxColumn
+        '
+        Me.LOTNODataGridViewTextBoxColumn.DataPropertyName = "LOT_NO"
+        Me.LOTNODataGridViewTextBoxColumn.HeaderText = "LOT_NO"
+        Me.LOTNODataGridViewTextBoxColumn.Name = "LOTNODataGridViewTextBoxColumn"
+        '
+        'UNITNODataGridViewTextBoxColumn
+        '
+        Me.UNITNODataGridViewTextBoxColumn.DataPropertyName = "UNIT_NO"
+        Me.UNITNODataGridViewTextBoxColumn.HeaderText = "UNIT_NO"
+        Me.UNITNODataGridViewTextBoxColumn.Name = "UNITNODataGridViewTextBoxColumn"
+        '
+        'ATMTDataGridViewTextBoxColumn
+        '
+        Me.ATMTDataGridViewTextBoxColumn.DataPropertyName = "AT_MT"
+        Me.ATMTDataGridViewTextBoxColumn.HeaderText = "AT_MT"
+        Me.ATMTDataGridViewTextBoxColumn.Name = "ATMTDataGridViewTextBoxColumn"
+        '
+        'EMISSIONDataGridViewTextBoxColumn
+        '
+        Me.EMISSIONDataGridViewTextBoxColumn.DataPropertyName = "EMISSION"
+        Me.EMISSIONDataGridViewTextBoxColumn.HeaderText = "EMISSION"
+        Me.EMISSIONDataGridViewTextBoxColumn.Name = "EMISSIONDataGridViewTextBoxColumn"
+        '
+        'INJMODELCODEDataGridViewTextBoxColumn
+        '
+        Me.INJMODELCODEDataGridViewTextBoxColumn.DataPropertyName = "INJ_MODEL_CODE"
+        Me.INJMODELCODEDataGridViewTextBoxColumn.HeaderText = "INJ_MODEL_CODE"
+        Me.INJMODELCODEDataGridViewTextBoxColumn.Name = "INJMODELCODEDataGridViewTextBoxColumn"
+        '
+        'SPARE001DataGridViewTextBoxColumn
+        '
+        Me.SPARE001DataGridViewTextBoxColumn.DataPropertyName = "SPARE_001"
+        Me.SPARE001DataGridViewTextBoxColumn.HeaderText = "SPARE_001"
+        Me.SPARE001DataGridViewTextBoxColumn.Name = "SPARE001DataGridViewTextBoxColumn"
+        '
+        'SPARE002DataGridViewTextBoxColumn
+        '
+        Me.SPARE002DataGridViewTextBoxColumn.DataPropertyName = "SPARE_002"
+        Me.SPARE002DataGridViewTextBoxColumn.HeaderText = "SPARE_002"
+        Me.SPARE002DataGridViewTextBoxColumn.Name = "SPARE002DataGridViewTextBoxColumn"
+        '
+        'SPARE003DataGridViewTextBoxColumn
+        '
+        Me.SPARE003DataGridViewTextBoxColumn.DataPropertyName = "SPARE_003"
+        Me.SPARE003DataGridViewTextBoxColumn.HeaderText = "SPARE_003"
+        Me.SPARE003DataGridViewTextBoxColumn.Name = "SPARE003DataGridViewTextBoxColumn"
+        '
+        'SPARE004DataGridViewTextBoxColumn
+        '
+        Me.SPARE004DataGridViewTextBoxColumn.DataPropertyName = "SPARE_004"
+        Me.SPARE004DataGridViewTextBoxColumn.HeaderText = "SPARE_004"
+        Me.SPARE004DataGridViewTextBoxColumn.Name = "SPARE004DataGridViewTextBoxColumn"
+        '
+        'SPARE005DataGridViewTextBoxColumn
+        '
+        Me.SPARE005DataGridViewTextBoxColumn.DataPropertyName = "SPARE_005"
+        Me.SPARE005DataGridViewTextBoxColumn.HeaderText = "SPARE_005"
+        Me.SPARE005DataGridViewTextBoxColumn.Name = "SPARE005DataGridViewTextBoxColumn"
+        '
+        'SPARE006DataGridViewTextBoxColumn
+        '
+        Me.SPARE006DataGridViewTextBoxColumn.DataPropertyName = "SPARE_006"
+        Me.SPARE006DataGridViewTextBoxColumn.HeaderText = "SPARE_006"
+        Me.SPARE006DataGridViewTextBoxColumn.Name = "SPARE006DataGridViewTextBoxColumn"
+        '
+        'SPARE007DataGridViewTextBoxColumn
+        '
+        Me.SPARE007DataGridViewTextBoxColumn.DataPropertyName = "SPARE_007"
+        Me.SPARE007DataGridViewTextBoxColumn.HeaderText = "SPARE_007"
+        Me.SPARE007DataGridViewTextBoxColumn.Name = "SPARE007DataGridViewTextBoxColumn"
+        '
+        'SPARE008DataGridViewTextBoxColumn
+        '
+        Me.SPARE008DataGridViewTextBoxColumn.DataPropertyName = "SPARE_008"
+        Me.SPARE008DataGridViewTextBoxColumn.HeaderText = "SPARE_008"
+        Me.SPARE008DataGridViewTextBoxColumn.Name = "SPARE008DataGridViewTextBoxColumn"
+        '
+        'SPARE009DataGridViewTextBoxColumn
+        '
+        Me.SPARE009DataGridViewTextBoxColumn.DataPropertyName = "SPARE_009"
+        Me.SPARE009DataGridViewTextBoxColumn.HeaderText = "SPARE_009"
+        Me.SPARE009DataGridViewTextBoxColumn.Name = "SPARE009DataGridViewTextBoxColumn"
+        '
+        'SPARE010DataGridViewTextBoxColumn
+        '
+        Me.SPARE010DataGridViewTextBoxColumn.DataPropertyName = "SPARE_010"
+        Me.SPARE010DataGridViewTextBoxColumn.HeaderText = "SPARE_010"
+        Me.SPARE010DataGridViewTextBoxColumn.Name = "SPARE010DataGridViewTextBoxColumn"
+        '
+        'SPARE011DataGridViewTextBoxColumn
+        '
+        Me.SPARE011DataGridViewTextBoxColumn.DataPropertyName = "SPARE_011"
+        Me.SPARE011DataGridViewTextBoxColumn.HeaderText = "SPARE_011"
+        Me.SPARE011DataGridViewTextBoxColumn.Name = "SPARE011DataGridViewTextBoxColumn"
+        '
+        'SPARE012DataGridViewTextBoxColumn
+        '
+        Me.SPARE012DataGridViewTextBoxColumn.DataPropertyName = "SPARE_012"
+        Me.SPARE012DataGridViewTextBoxColumn.HeaderText = "SPARE_012"
+        Me.SPARE012DataGridViewTextBoxColumn.Name = "SPARE012DataGridViewTextBoxColumn"
+        '
+        'SPARE013DataGridViewTextBoxColumn
+        '
+        Me.SPARE013DataGridViewTextBoxColumn.DataPropertyName = "SPARE_013"
+        Me.SPARE013DataGridViewTextBoxColumn.HeaderText = "SPARE_013"
+        Me.SPARE013DataGridViewTextBoxColumn.Name = "SPARE013DataGridViewTextBoxColumn"
+        '
+        'SPARE014DataGridViewTextBoxColumn
+        '
+        Me.SPARE014DataGridViewTextBoxColumn.DataPropertyName = "SPARE_014"
+        Me.SPARE014DataGridViewTextBoxColumn.HeaderText = "SPARE_014"
+        Me.SPARE014DataGridViewTextBoxColumn.Name = "SPARE014DataGridViewTextBoxColumn"
+        '
+        'SPARE015DataGridViewTextBoxColumn
+        '
+        Me.SPARE015DataGridViewTextBoxColumn.DataPropertyName = "SPARE_015"
+        Me.SPARE015DataGridViewTextBoxColumn.HeaderText = "SPARE_015"
+        Me.SPARE015DataGridViewTextBoxColumn.Name = "SPARE015DataGridViewTextBoxColumn"
+        '
+        'SPARE016DataGridViewTextBoxColumn
+        '
+        Me.SPARE016DataGridViewTextBoxColumn.DataPropertyName = "SPARE_016"
+        Me.SPARE016DataGridViewTextBoxColumn.HeaderText = "SPARE_016"
+        Me.SPARE016DataGridViewTextBoxColumn.Name = "SPARE016DataGridViewTextBoxColumn"
+        '
+        'SPARE017DataGridViewTextBoxColumn
+        '
+        Me.SPARE017DataGridViewTextBoxColumn.DataPropertyName = "SPARE_017"
+        Me.SPARE017DataGridViewTextBoxColumn.HeaderText = "SPARE_017"
+        Me.SPARE017DataGridViewTextBoxColumn.Name = "SPARE017DataGridViewTextBoxColumn"
+        '
+        'SBDATASBPARTSNODataGridViewTextBoxColumn
+        '
+        Me.SBDATASBPARTSNODataGridViewTextBoxColumn.DataPropertyName = "SB_DATA_SB_PARTS_NO"
+        Me.SBDATASBPARTSNODataGridViewTextBoxColumn.HeaderText = "SB_DATA_SB_PARTS_NO"
+        Me.SBDATASBPARTSNODataGridViewTextBoxColumn.Name = "SBDATASBPARTSNODataGridViewTextBoxColumn"
+        '
+        'SBDATASBSERIALNODataGridViewTextBoxColumn
+        '
+        Me.SBDATASBSERIALNODataGridViewTextBoxColumn.DataPropertyName = "SB_DATA_SB_SERIAL_NO"
+        Me.SBDATASBSERIALNODataGridViewTextBoxColumn.HeaderText = "SB_DATA_SB_SERIAL_NO"
+        Me.SBDATASBSERIALNODataGridViewTextBoxColumn.Name = "SBDATASBSERIALNODataGridViewTextBoxColumn"
+        '
+        'SBDATAGASKETGRADEDataGridViewTextBoxColumn
+        '
+        Me.SBDATAGASKETGRADEDataGridViewTextBoxColumn.DataPropertyName = "SB_DATA_GASKET_GRADE"
+        Me.SBDATAGASKETGRADEDataGridViewTextBoxColumn.HeaderText = "SB_DATA_GASKET_GRADE"
+        Me.SBDATAGASKETGRADEDataGridViewTextBoxColumn.Name = "SBDATAGASKETGRADEDataGridViewTextBoxColumn"
+        '
+        'LINEONTIMEDataGridViewTextBoxColumn
+        '
+        Me.LINEONTIMEDataGridViewTextBoxColumn.DataPropertyName = "LINE_ON_TIME"
+        Me.LINEONTIMEDataGridViewTextBoxColumn.HeaderText = "LINE_ON_TIME"
+        Me.LINEONTIMEDataGridViewTextBoxColumn.Name = "LINEONTIMEDataGridViewTextBoxColumn"
+        '
+        'LINEOFFTIMEDataGridViewTextBoxColumn
+        '
+        Me.LINEOFFTIMEDataGridViewTextBoxColumn.DataPropertyName = "LINE_OFF_TIME"
+        Me.LINEOFFTIMEDataGridViewTextBoxColumn.HeaderText = "LINE_OFF_TIME"
+        Me.LINEOFFTIMEDataGridViewTextBoxColumn.Name = "LINEOFFTIMEDataGridViewTextBoxColumn"
+        '
+        'RPCOCFSBLOBCTDataGridViewTextBoxColumn
+        '
+        Me.RPCOCFSBLOBCTDataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_SBLO_BCT"
+        Me.RPCOCFSBLOBCTDataGridViewTextBoxColumn.HeaderText = "RPCOCF_SBLO_BCT"
+        Me.RPCOCFSBLOBCTDataGridViewTextBoxColumn.Name = "RPCOCFSBLOBCTDataGridViewTextBoxColumn"
+        '
+        'RPCOCFSBLOCRTDataGridViewTextBoxColumn
+        '
+        Me.RPCOCFSBLOCRTDataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_SBLO_CRT"
+        Me.RPCOCFSBLOCRTDataGridViewTextBoxColumn.HeaderText = "RPCOCF_SBLO_CRT"
+        Me.RPCOCFSBLOCRTDataGridViewTextBoxColumn.Name = "RPCOCFSBLOCRTDataGridViewTextBoxColumn"
+        '
+        'RPCOCFSBLOCTMDataGridViewTextBoxColumn
+        '
+        Me.RPCOCFSBLOCTMDataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_SBLO_CTM"
+        Me.RPCOCFSBLOCTMDataGridViewTextBoxColumn.HeaderText = "RPCOCF_SBLO_CTM"
+        Me.RPCOCFSBLOCTMDataGridViewTextBoxColumn.Name = "RPCOCFSBLOCTMDataGridViewTextBoxColumn"
+        '
+        'RPCOCFSBLOSPARE01DataGridViewTextBoxColumn
+        '
+        Me.RPCOCFSBLOSPARE01DataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_SBLO_SPARE01"
+        Me.RPCOCFSBLOSPARE01DataGridViewTextBoxColumn.HeaderText = "RPCOCF_SBLO_SPARE01"
+        Me.RPCOCFSBLOSPARE01DataGridViewTextBoxColumn.Name = "RPCOCFSBLOSPARE01DataGridViewTextBoxColumn"
+        '
+        'RPCOCFSBLOSPARE02DataGridViewTextBoxColumn
+        '
+        Me.RPCOCFSBLOSPARE02DataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_SBLO_SPARE02"
+        Me.RPCOCFSBLOSPARE02DataGridViewTextBoxColumn.HeaderText = "RPCOCF_SBLO_SPARE02"
+        Me.RPCOCFSBLOSPARE02DataGridViewTextBoxColumn.Name = "RPCOCFSBLOSPARE02DataGridViewTextBoxColumn"
+        '
+        'RPCOCFSBLOSPARE03DataGridViewTextBoxColumn
+        '
+        Me.RPCOCFSBLOSPARE03DataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_SBLO_SPARE03"
+        Me.RPCOCFSBLOSPARE03DataGridViewTextBoxColumn.HeaderText = "RPCOCF_SBLO_SPARE03"
+        Me.RPCOCFSBLOSPARE03DataGridViewTextBoxColumn.Name = "RPCOCFSBLOSPARE03DataGridViewTextBoxColumn"
+        '
+        'RPCOCFMALOCCTDataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMALOCCTDataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MALO_CCT"
+        Me.RPCOCFMALOCCTDataGridViewTextBoxColumn.HeaderText = "RPCOCF_MALO_CCT"
+        Me.RPCOCFMALOCCTDataGridViewTextBoxColumn.Name = "RPCOCFMALOCCTDataGridViewTextBoxColumn"
+        '
+        'RPCOCFMALODPTDataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMALODPTDataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MALO_DPT"
+        Me.RPCOCFMALODPTDataGridViewTextBoxColumn.HeaderText = "RPCOCF_MALO_DPT"
+        Me.RPCOCFMALODPTDataGridViewTextBoxColumn.Name = "RPCOCFMALODPTDataGridViewTextBoxColumn"
+        '
+        'RPCOCFMALOFWTDataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMALOFWTDataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MALO_FWT"
+        Me.RPCOCFMALOFWTDataGridViewTextBoxColumn.HeaderText = "RPCOCF_MALO_FWT"
+        Me.RPCOCFMALOFWTDataGridViewTextBoxColumn.Name = "RPCOCFMALOFWTDataGridViewTextBoxColumn"
+        '
+        'RPCOCFMALOSPARE01DataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMALOSPARE01DataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MALO_SPARE01"
+        Me.RPCOCFMALOSPARE01DataGridViewTextBoxColumn.HeaderText = "RPCOCF_MALO_SPARE01"
+        Me.RPCOCFMALOSPARE01DataGridViewTextBoxColumn.Name = "RPCOCFMALOSPARE01DataGridViewTextBoxColumn"
+        '
+        'RPCOCFMALOSPARE02DataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMALOSPARE02DataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MALO_SPARE02"
+        Me.RPCOCFMALOSPARE02DataGridViewTextBoxColumn.HeaderText = "RPCOCF_MALO_SPARE02"
+        Me.RPCOCFMALOSPARE02DataGridViewTextBoxColumn.Name = "RPCOCFMALOSPARE02DataGridViewTextBoxColumn"
+        '
+        'RPCOCFMALOSPARE03DataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMALOSPARE03DataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MALO_SPARE03"
+        Me.RPCOCFMALOSPARE03DataGridViewTextBoxColumn.HeaderText = "RPCOCF_MALO_SPARE03"
+        Me.RPCOCFMALOSPARE03DataGridViewTextBoxColumn.Name = "RPCOCFMALOSPARE03DataGridViewTextBoxColumn"
+        '
+        'RPCOCFMBLOHDTDataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMBLOHDTDataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MBLO_HDT"
+        Me.RPCOCFMBLOHDTDataGridViewTextBoxColumn.HeaderText = "RPCOCF_MBLO_HDT"
+        Me.RPCOCFMBLOHDTDataGridViewTextBoxColumn.Name = "RPCOCFMBLOHDTDataGridViewTextBoxColumn"
+        '
+        'RPCOCFMBLOCCTDataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMBLOCCTDataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MBLO_CCT"
+        Me.RPCOCFMBLOCCTDataGridViewTextBoxColumn.HeaderText = "RPCOCF_MBLO_CCT"
+        Me.RPCOCFMBLOCCTDataGridViewTextBoxColumn.Name = "RPCOCFMBLOCCTDataGridViewTextBoxColumn"
+        '
+        'RPCOCFMBLOHCTDataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMBLOHCTDataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MBLO_HCT"
+        Me.RPCOCFMBLOHCTDataGridViewTextBoxColumn.HeaderText = "RPCOCF_MBLO_HCT"
+        Me.RPCOCFMBLOHCTDataGridViewTextBoxColumn.Name = "RPCOCFMBLOHCTDataGridViewTextBoxColumn"
+        '
+        'RPCOCFMBLOPPTDataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMBLOPPTDataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MBLO_PPT"
+        Me.RPCOCFMBLOPPTDataGridViewTextBoxColumn.HeaderText = "RPCOCF_MBLO_PPT"
+        Me.RPCOCFMBLOPPTDataGridViewTextBoxColumn.Name = "RPCOCFMBLOPPTDataGridViewTextBoxColumn"
+        '
+        'RPCOCFMBLOSPARE01DataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMBLOSPARE01DataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MBLO_SPARE01"
+        Me.RPCOCFMBLOSPARE01DataGridViewTextBoxColumn.HeaderText = "RPCOCF_MBLO_SPARE01"
+        Me.RPCOCFMBLOSPARE01DataGridViewTextBoxColumn.Name = "RPCOCFMBLOSPARE01DataGridViewTextBoxColumn"
+        '
+        'RPCOCFMBLOSPARE02DataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMBLOSPARE02DataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MBLO_SPARE02"
+        Me.RPCOCFMBLOSPARE02DataGridViewTextBoxColumn.HeaderText = "RPCOCF_MBLO_SPARE02"
+        Me.RPCOCFMBLOSPARE02DataGridViewTextBoxColumn.Name = "RPCOCFMBLOSPARE02DataGridViewTextBoxColumn"
+        '
+        'RPCOCFMBLOSPARE03DataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMBLOSPARE03DataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MBLO_SPARE03"
+        Me.RPCOCFMBLOSPARE03DataGridViewTextBoxColumn.HeaderText = "RPCOCF_MBLO_SPARE03"
+        Me.RPCOCFMBLOSPARE03DataGridViewTextBoxColumn.Name = "RPCOCFMBLOSPARE03DataGridViewTextBoxColumn"
+        '
+        'RPCOCFMBLOSPARE04DataGridViewTextBoxColumn
+        '
+        Me.RPCOCFMBLOSPARE04DataGridViewTextBoxColumn.DataPropertyName = "RPCOCF_MBLO_SPARE04"
+        Me.RPCOCFMBLOSPARE04DataGridViewTextBoxColumn.HeaderText = "RPCOCF_MBLO_SPARE04"
+        Me.RPCOCFMBLOSPARE04DataGridViewTextBoxColumn.Name = "RPCOCFMBLOSPARE04DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTION01DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTION01DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION01"
+        Me.INSPSJINSPECTION01DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION01"
+        Me.INSPSJINSPECTION01DataGridViewTextBoxColumn.Name = "INSPSJINSPECTION01DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTION02DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTION02DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION02"
+        Me.INSPSJINSPECTION02DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION02"
+        Me.INSPSJINSPECTION02DataGridViewTextBoxColumn.Name = "INSPSJINSPECTION02DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTION03DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTION03DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION03"
+        Me.INSPSJINSPECTION03DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION03"
+        Me.INSPSJINSPECTION03DataGridViewTextBoxColumn.Name = "INSPSJINSPECTION03DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTION04DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTION04DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION04"
+        Me.INSPSJINSPECTION04DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION04"
+        Me.INSPSJINSPECTION04DataGridViewTextBoxColumn.Name = "INSPSJINSPECTION04DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTION05DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTION05DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION05"
+        Me.INSPSJINSPECTION05DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION05"
+        Me.INSPSJINSPECTION05DataGridViewTextBoxColumn.Name = "INSPSJINSPECTION05DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTION06DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTION06DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION06"
+        Me.INSPSJINSPECTION06DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION06"
+        Me.INSPSJINSPECTION06DataGridViewTextBoxColumn.Name = "INSPSJINSPECTION06DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTIONTIME01DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTIONTIME01DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION_TIME01"
+        Me.INSPSJINSPECTIONTIME01DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION_TIME01"
+        Me.INSPSJINSPECTIONTIME01DataGridViewTextBoxColumn.Name = "INSPSJINSPECTIONTIME01DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTION11DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTION11DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION11"
+        Me.INSPSJINSPECTION11DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION11"
+        Me.INSPSJINSPECTION11DataGridViewTextBoxColumn.Name = "INSPSJINSPECTION11DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTION12DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTION12DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION12"
+        Me.INSPSJINSPECTION12DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION12"
+        Me.INSPSJINSPECTION12DataGridViewTextBoxColumn.Name = "INSPSJINSPECTION12DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTION13DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTION13DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION13"
+        Me.INSPSJINSPECTION13DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION13"
+        Me.INSPSJINSPECTION13DataGridViewTextBoxColumn.Name = "INSPSJINSPECTION13DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTION14DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTION14DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION14"
+        Me.INSPSJINSPECTION14DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION14"
+        Me.INSPSJINSPECTION14DataGridViewTextBoxColumn.Name = "INSPSJINSPECTION14DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTION15DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTION15DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION15"
+        Me.INSPSJINSPECTION15DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION15"
+        Me.INSPSJINSPECTION15DataGridViewTextBoxColumn.Name = "INSPSJINSPECTION15DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTION16DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTION16DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION16"
+        Me.INSPSJINSPECTION16DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION16"
+        Me.INSPSJINSPECTION16DataGridViewTextBoxColumn.Name = "INSPSJINSPECTION16DataGridViewTextBoxColumn"
+        '
+        'INSPSJINSPECTIONTIME02DataGridViewTextBoxColumn
+        '
+        Me.INSPSJINSPECTIONTIME02DataGridViewTextBoxColumn.DataPropertyName = "INSPSJ_INSPECTION_TIME02"
+        Me.INSPSJINSPECTIONTIME02DataGridViewTextBoxColumn.HeaderText = "INSPSJ_INSPECTION_TIME02"
+        Me.INSPSJINSPECTIONTIME02DataGridViewTextBoxColumn.Name = "INSPSJINSPECTIONTIME02DataGridViewTextBoxColumn"
+        '
+        'CREATEDBYDataGridViewTextBoxColumn
+        '
+        Me.CREATEDBYDataGridViewTextBoxColumn.DataPropertyName = "CREATED_BY"
+        Me.CREATEDBYDataGridViewTextBoxColumn.HeaderText = "CREATED_BY"
+        Me.CREATEDBYDataGridViewTextBoxColumn.Name = "CREATEDBYDataGridViewTextBoxColumn"
+        '
+        'UPDATEDBYDataGridViewTextBoxColumn
+        '
+        Me.UPDATEDBYDataGridViewTextBoxColumn.DataPropertyName = "UPDATED_BY"
+        Me.UPDATEDBYDataGridViewTextBoxColumn.HeaderText = "UPDATED_BY"
+        Me.UPDATEDBYDataGridViewTextBoxColumn.Name = "UPDATEDBYDataGridViewTextBoxColumn"
+        '
+        'CREATEDWHENDataGridViewTextBoxColumn
+        '
+        Me.CREATEDWHENDataGridViewTextBoxColumn.DataPropertyName = "CREATED_WHEN"
+        Me.CREATEDWHENDataGridViewTextBoxColumn.HeaderText = "CREATED_WHEN"
+        Me.CREATEDWHENDataGridViewTextBoxColumn.Name = "CREATEDWHENDataGridViewTextBoxColumn"
+        '
+        'UPDATEDWHENDataGridViewTextBoxColumn
+        '
+        Me.UPDATEDWHENDataGridViewTextBoxColumn.DataPropertyName = "UPDATED_WHEN"
+        Me.UPDATEDWHENDataGridViewTextBoxColumn.HeaderText = "UPDATED_WHEN"
+        Me.UPDATEDWHENDataGridViewTextBoxColumn.Name = "UPDATEDWHENDataGridViewTextBoxColumn"
+        '
+        'Form1
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(688, 261)
+        Me.Controls.Add(Me.DataGridView1)
+        Me.Name = "Form1"
+        Me.Text = "Form1"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ENGINELISTBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents DataSet1 As pdt_es01_server.DataSet1
+    Friend WithEvents ENGINELISTBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents ENGINE_LISTTableAdapter As pdt_es01_server.DataSet1TableAdapters.ENGINE_LISTTableAdapter
+    Friend WithEvents IDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ENGINETYPEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ENGINENODataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ENGINEASMNODataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents BOOKDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents YEARDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MODELCODEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents LOTNODataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents UNITNODataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ATMTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents EMISSIONDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INJMODELCODEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE001DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE002DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE003DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE004DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE005DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE006DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE007DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE008DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE009DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE010DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE011DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE012DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE013DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE014DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE015DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE016DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SPARE017DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SBDATASBPARTSNODataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SBDATASBSERIALNODataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents SBDATAGASKETGRADEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents LINEONTIMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents LINEOFFTIMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFSBLOBCTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFSBLOCRTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFSBLOCTMDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFSBLOSPARE01DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFSBLOSPARE02DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFSBLOSPARE03DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMALOCCTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMALODPTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMALOFWTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMALOSPARE01DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMALOSPARE02DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMALOSPARE03DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMBLOHDTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMBLOCCTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMBLOHCTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMBLOPPTDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMBLOSPARE01DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMBLOSPARE02DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMBLOSPARE03DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents RPCOCFMBLOSPARE04DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTION01DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTION02DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTION03DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTION04DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTION05DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTION06DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTIONTIME01DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTION11DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTION12DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTION13DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTION14DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTION15DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTION16DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents INSPSJINSPECTIONTIME02DataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CREATEDBYDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents UPDATEDBYDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CREATEDWHENDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents UPDATEDWHENDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+
+End Class

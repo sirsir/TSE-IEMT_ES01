@@ -1,0 +1,247 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmServer
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LOGTYPEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OCCDATEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PCNAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LINENAMEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LOGLEVELDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MESSAGEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LOG_DATABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Iemt_pdt_es01_developmentDataSet = New pdt_es01_server.iemt_pdt_es01_developmentDataSet()
+        Me.LOG_DATATableAdapter = New pdt_es01_server.iemt_pdt_es01_developmentDataSetTableAdapters.LOG_DATATableAdapter()
+        Me.TableAdapterManager = New pdt_es01_server.iemt_pdt_es01_developmentDataSetTableAdapters.TableAdapterManager()
+        Me.tmrRefreshLog = New System.Windows.Forms.Timer(Me.components)
+        Me.lblDateTime = New System.Windows.Forms.Label()
+        Me.btnExit = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.bkgClock = New System.ComponentModel.BackgroundWorker()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LOG_DATABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Iemt_pdt_es01_developmentDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeColumns = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders
+        Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.LOGTYPEDataGridViewTextBoxColumn, Me.OCCDATEDataGridViewTextBoxColumn, Me.PCNAMEDataGridViewTextBoxColumn, Me.LINENAMEDataGridViewTextBoxColumn, Me.LOGLEVELDataGridViewTextBoxColumn, Me.MESSAGEDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.LOG_DATABindingSource
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 84)
+        Me.DataGridView1.MultiSelect = False
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(992, 521)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IDDataGridViewTextBoxColumn.Visible = False
+        Me.IDDataGridViewTextBoxColumn.Width = 200
+        '
+        'LOGTYPEDataGridViewTextBoxColumn
+        '
+        Me.LOGTYPEDataGridViewTextBoxColumn.DataPropertyName = "LOG_TYPE"
+        Me.LOGTYPEDataGridViewTextBoxColumn.HeaderText = "LOG_TYPE"
+        Me.LOGTYPEDataGridViewTextBoxColumn.Name = "LOGTYPEDataGridViewTextBoxColumn"
+        Me.LOGTYPEDataGridViewTextBoxColumn.ReadOnly = True
+        Me.LOGTYPEDataGridViewTextBoxColumn.Visible = False
+        '
+        'OCCDATEDataGridViewTextBoxColumn
+        '
+        Me.OCCDATEDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.OCCDATEDataGridViewTextBoxColumn.DataPropertyName = "OCC_DATE"
+        Me.OCCDATEDataGridViewTextBoxColumn.FillWeight = 20.0!
+        Me.OCCDATEDataGridViewTextBoxColumn.HeaderText = "OCC_DATE"
+        Me.OCCDATEDataGridViewTextBoxColumn.MinimumWidth = 100
+        Me.OCCDATEDataGridViewTextBoxColumn.Name = "OCCDATEDataGridViewTextBoxColumn"
+        Me.OCCDATEDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'PCNAMEDataGridViewTextBoxColumn
+        '
+        Me.PCNAMEDataGridViewTextBoxColumn.DataPropertyName = "PC_NAME"
+        Me.PCNAMEDataGridViewTextBoxColumn.HeaderText = "PC_NAME"
+        Me.PCNAMEDataGridViewTextBoxColumn.Name = "PCNAMEDataGridViewTextBoxColumn"
+        Me.PCNAMEDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PCNAMEDataGridViewTextBoxColumn.Visible = False
+        '
+        'LINENAMEDataGridViewTextBoxColumn
+        '
+        Me.LINENAMEDataGridViewTextBoxColumn.DataPropertyName = "LINE_NAME"
+        Me.LINENAMEDataGridViewTextBoxColumn.HeaderText = "LINE_NAME"
+        Me.LINENAMEDataGridViewTextBoxColumn.Name = "LINENAMEDataGridViewTextBoxColumn"
+        Me.LINENAMEDataGridViewTextBoxColumn.ReadOnly = True
+        Me.LINENAMEDataGridViewTextBoxColumn.Visible = False
+        '
+        'LOGLEVELDataGridViewTextBoxColumn
+        '
+        Me.LOGLEVELDataGridViewTextBoxColumn.DataPropertyName = "LOG_LEVEL"
+        Me.LOGLEVELDataGridViewTextBoxColumn.HeaderText = "LOG_LEVEL"
+        Me.LOGLEVELDataGridViewTextBoxColumn.Name = "LOGLEVELDataGridViewTextBoxColumn"
+        Me.LOGLEVELDataGridViewTextBoxColumn.ReadOnly = True
+        Me.LOGLEVELDataGridViewTextBoxColumn.Visible = False
+        '
+        'MESSAGEDataGridViewTextBoxColumn
+        '
+        Me.MESSAGEDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.MESSAGEDataGridViewTextBoxColumn.DataPropertyName = "MESSAGE"
+        Me.MESSAGEDataGridViewTextBoxColumn.FillWeight = 80.0!
+        Me.MESSAGEDataGridViewTextBoxColumn.HeaderText = "MESSAGE"
+        Me.MESSAGEDataGridViewTextBoxColumn.Name = "MESSAGEDataGridViewTextBoxColumn"
+        Me.MESSAGEDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'LOG_DATABindingSource
+        '
+        Me.LOG_DATABindingSource.DataMember = "LOG_DATA"
+        Me.LOG_DATABindingSource.DataSource = Me.Iemt_pdt_es01_developmentDataSet
+        '
+        'Iemt_pdt_es01_developmentDataSet
+        '
+        Me.Iemt_pdt_es01_developmentDataSet.DataSetName = "iemt_pdt_es01_developmentDataSet"
+        Me.Iemt_pdt_es01_developmentDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'LOG_DATATableAdapter
+        '
+        Me.LOG_DATATableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.ENGINE_LISTTableAdapter = Nothing
+        Me.TableAdapterManager.LOG_DATATableAdapter = Me.LOG_DATATableAdapter
+        Me.TableAdapterManager.TRACE_DATA_DATETIMETableAdapter = Nothing
+        Me.TableAdapterManager.TRACE_DATA_INTTableAdapter = Nothing
+        Me.TableAdapterManager.TRACE_DATA_STRTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = pdt_es01_server.iemt_pdt_es01_developmentDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.WORKING_DATA_DATETIMETableAdapter = Nothing
+        Me.TableAdapterManager.WORKING_DATA_INTTableAdapter = Nothing
+        Me.TableAdapterManager.WORKING_DATA_STRTableAdapter = Nothing
+        '
+        'tmrRefreshLog
+        '
+        Me.tmrRefreshLog.Interval = 1000
+        '
+        'lblDateTime
+        '
+        Me.lblDateTime.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblDateTime.AutoSize = True
+        Me.lblDateTime.Location = New System.Drawing.Point(12, 631)
+        Me.lblDateTime.Name = "lblDateTime"
+        Me.lblDateTime.Size = New System.Drawing.Size(51, 13)
+        Me.lblDateTime.TabIndex = 14
+        Me.lblDateTime.Text = "dateTime"
+        '
+        'btnExit
+        '
+        Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExit.Location = New System.Drawing.Point(927, 626)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(75, 23)
+        Me.btnExit.TabIndex = 13
+        Me.btnExit.Text = "EXIT"
+        Me.btnExit.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.BackColor = System.Drawing.Color.DarkGreen
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(222, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(12, 9)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(992, 68)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "ES01 SERVER"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'bkgClock
+        '
+        Me.bkgClock.WorkerReportsProgress = True
+        Me.bkgClock.WorkerSupportsCancellation = True
+        '
+        'frmServer
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(1016, 661)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.lblDateTime)
+        Me.Controls.Add(Me.btnExit)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.DataGridView1)
+        Me.Name = "frmServer"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "ES01 Server"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LOG_DATABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Iemt_pdt_es01_developmentDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents Iemt_pdt_es01_developmentDataSet As pdt_es01_server.iemt_pdt_es01_developmentDataSet
+    Friend WithEvents LOG_DATABindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents LOG_DATATableAdapter As pdt_es01_server.iemt_pdt_es01_developmentDataSetTableAdapters.LOG_DATATableAdapter
+    Friend WithEvents TableAdapterManager As pdt_es01_server.iemt_pdt_es01_developmentDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents tmrRefreshLog As System.Windows.Forms.Timer
+    Friend WithEvents IDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents LOGTYPEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents OCCDATEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PCNAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents LINENAMEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents LOGLEVELDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MESSAGEDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents lblDateTime As System.Windows.Forms.Label
+    Friend WithEvents btnExit As System.Windows.Forms.Button
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents bkgClock As System.ComponentModel.BackgroundWorker
+End Class

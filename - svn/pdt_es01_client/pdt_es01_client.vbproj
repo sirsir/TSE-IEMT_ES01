@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{56E6C756-5E00-4910-8445-6A9AF7AAECA7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>pdt_es01_client.My.MyApplication</StartupObject>
+    <RootNamespace>pdt_es01_client</RootNamespace>
+    <AssemblyName>pdt_es01_client</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>pdt_es01_client.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>pdt_es01_client.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="class\clsGridToExcel.vb" />
+    <Compile Include="class\clsLogger.vb" />
+    <Compile Include="class\clsStringUtilities.vb" />
+    <Compile Include="class\ctrlPivotGrid.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="form\Base\frmData.Designer.vb">
+      <DependentUpon>frmData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\Base\frmData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Base\frmSearch.Designer.vb">
+      <DependentUpon>frmSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\Base\frmSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Base\frmBase.Designer.vb">
+      <DependentUpon>frmBase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\Base\frmBase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmDATE_PartNo_Search.Designer.vb">
+      <DependentUpon>frmDATE_PartNo_Search.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmDATE_PartNo_Search.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmProductionManualInputWorkingData.Designer.vb">
+      <DependentUpon>frmProductionManualInputWorkingData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmProductionManualInputWorkingData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmSelectWorkingDataType.Designer.vb">
+      <DependentUpon>frmSelectWorkingDataType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmSelectWorkingDataType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmTraceAbilityData_Show.Designer.vb">
+      <DependentUpon>frmTraceAbilityData_Show.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmTraceAbilityData_Show.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmShortBlockSerialNo_Show.Designer.vb">
+      <DependentUpon>frmShortBlockSerialNo_Show.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmShortBlockSerialNo_Show.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmDATE_PartNo_Show.Designer.vb">
+      <DependentUpon>frmDATE_PartNo_Show.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmDATE_PartNo_Show.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmShortBlockSerialNo_Search.Designer.vb">
+      <DependentUpon>frmShortBlockSerialNo_Search.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmShortBlockSerialNo_Search.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmWorkingData.Designer.vb">
+      <DependentUpon>frmWorkingData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmWorkingData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmSerialNo_PartNo_Search.Designer.vb">
+      <DependentUpon>frmSerialNo_PartNo_Search.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmSerialNo_PartNo_Search.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmSerialNo_PartNo_History.Designer.vb">
+      <DependentUpon>frmSerialNo_PartNo_History.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmSerialNo_PartNo_History.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmSerialNo_PartNo_Edit.Designer.vb">
+      <DependentUpon>frmSerialNo_PartNo_Edit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmSerialNo_PartNo_Edit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmSerialNo_PartNo_Show.Designer.vb">
+      <DependentUpon>frmSerialNo_PartNo_Show.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmSerialNo_PartNo_Show.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmProductionDateSearch.Designer.vb">
+      <DependentUpon>frmProductionDateSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmProductionDateSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmSearchByAsmDate.Designer.vb">
+      <DependentUpon>frmSearchByAsmDate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmSearchByAsmDate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmMainMenu.Designer.vb">
+      <DependentUpon>frmMainMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmMainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmProductionData.Designer.vb">
+      <DependentUpon>frmProductionData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmProductionData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmSearchByModelCodeLotNo.Designer.vb">
+      <DependentUpon>frmSearchByModelCodeLotNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmSearchByModelCodeLotNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmSelectDataType.Designer.vb">
+      <DependentUpon>frmSelectDataType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmSelectDataType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\frmSearchByEngineNo.Designer.vb">
+      <DependentUpon>frmSearchByEngineNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form\frmSearchByEngineNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClentSample.Designer.vb">
+      <DependentUpon>frmClentSample.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmClentSample.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="module\modGlobalVariables.vb" />
+    <Compile Include="module\modLogger.vb" />
+    <Compile Include="module\modValidate.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="form\Base\frmBase.resx">
+      <DependentUpon>frmBase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\Base\frmData.resx">
+      <DependentUpon>frmData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\Base\frmSearch.resx">
+      <DependentUpon>frmSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmDATE_PartNo_Search.resx">
+      <DependentUpon>frmDATE_PartNo_Search.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmProductionData.resx">
+      <DependentUpon>frmProductionData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmProductionDateSearch.resx">
+      <DependentUpon>frmProductionDateSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmProductionManualInputWorkingData.resx">
+      <DependentUpon>frmProductionManualInputWorkingData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmSelectWorkingDataType.resx">
+      <DependentUpon>frmSelectWorkingDataType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmTraceAbilityData_Show.resx">
+      <DependentUpon>frmTraceAbilityData_Show.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmShortBlockSerialNo_Show.resx">
+      <DependentUpon>frmShortBlockSerialNo_Show.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmDATE_PartNo_Show.resx">
+      <DependentUpon>frmDATE_PartNo_Show.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmShortBlockSerialNo_Search.resx">
+      <DependentUpon>frmShortBlockSerialNo_Search.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmSerialNo_PartNo_Search.resx">
+      <DependentUpon>frmSerialNo_PartNo_Search.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmSerialNo_PartNo_History.resx">
+      <DependentUpon>frmSerialNo_PartNo_History.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmSerialNo_PartNo_Edit.resx">
+      <DependentUpon>frmSerialNo_PartNo_Edit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmSerialNo_PartNo_Show.resx">
+      <DependentUpon>frmSerialNo_PartNo_Show.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmSearchByAsmDate.resx">
+      <DependentUpon>frmSearchByAsmDate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmSearchByModelCodeLotNo.resx">
+      <DependentUpon>frmSearchByModelCodeLotNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmMainMenu.resx">
+      <DependentUpon>frmMainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmSearchByEngineNo.resx">
+      <DependentUpon>frmSearchByEngineNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmSelectDataType.resx">
+      <DependentUpon>frmSelectDataType.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\frmWorkingData.resx">
+      <DependentUpon>frmWorkingData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClentSample.resx">
+      <DependentUpon>frmClentSample.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <Content Include="Template\frmClentSample.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\Template01.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmTraceAbilityData_Show.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmDATE_PartNo_Show.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmProductionData.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmProductionDateSearch.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmSerialNo_PartNo_History.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmSerialNo_PartNo_Show.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmShortBlockSerialNo_Show.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmWorkingData-CAM CARRIR   TIGHTEN DATA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmWorkingData-CON ROD TIGHTEN DATA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmWorkingData-CRANK CASE TIGHTEN DATA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmWorkingData-CRANK SHAFT TIGHTEN DATA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmWorkingData-CRANKING TORQUE DATA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmWorkingData-CYL HEAD TIGHTEN DATA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmWorkingData-DUMPER PULLEY TIGHTEN DATA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmWorkingData-FLY WHEEL TIGHTEN DATA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmWorkingData-HEAD COVER   TIGHTEN DATA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmWorkingData-INJECTOR DATA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmWorkingData-PRESSURE PLATE   TIGHTEN DATA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Template\frmWorkingData-TEST LINE.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

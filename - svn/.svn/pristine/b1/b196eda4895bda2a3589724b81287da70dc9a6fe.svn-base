@@ -1,0 +1,42 @@
+﻿Module modGlobalVariables
+    'Public in_engineNo As String = ""
+    'Public in_datatype As String = ""
+    'Public strIn1 As String = ""
+    'Public strIn2 As String = ""
+    'Public strIn3 As String = ""
+    Public Enum SEARCH_BY
+        ENGINE_NO
+        MODEL_CODE_LOT_NO
+        LINE_ON_TIME__ASM_DATE
+    End Enum
+
+    Public Enum TABLE2SHOW
+        ENGINE_LIST
+        V_WORKING_DATA_STATIC
+        ENGINE_LIST__ProductionDateSearch
+    End Enum
+
+   
+    
+
+
+
+    Public arrIn As New ArrayList()
+    Public tabletype As New TABLE2SHOW
+
+    Public searchBy As SEARCH_BY
+
+
+
+    Public Sub reset()
+        'in_engineNo = ""
+        'in_modelNo = ""
+        'In_lotNo = ""
+        'in_datatype = ""
+        'strIn1 = 0
+        'strIn2 = 0
+        'strIn1 = 0
+
+        arrIn.Clear()
+    End Sub
+End Module

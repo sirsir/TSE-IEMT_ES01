@@ -1,0 +1,8 @@
+﻿Public Class frmBase
+
+
+
+    Protected Overridable Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
+
+    End Sub
+End Class

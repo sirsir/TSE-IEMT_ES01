@@ -1,0 +1,49 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmSearch
+    'Inherits System.Windows.Forms.Form
+    Inherits frmBase
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.TextBoxHeading = New System.Windows.Forms.TextBox()
+        Me.SuspendLayout()
+        '
+        'TextBoxHeading
+        '
+        Me.TextBoxHeading.Location = New System.Drawing.Point(42, 32)
+        Me.TextBoxHeading.Name = "TextBoxHeading"
+        Me.TextBoxHeading.Size = New System.Drawing.Size(100, 41)
+        Me.TextBoxHeading.TabIndex = 0
+        '
+        'frmSearch
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(17.0!, 33.0!)
+        Me.ClientSize = New System.Drawing.Size(1016, 661)
+        Me.Controls.Add(Me.TextBoxHeading)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!)
+        Me.Name = "frmSearch"
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents TextBoxHeading As System.Windows.Forms.TextBox
+
+End Class

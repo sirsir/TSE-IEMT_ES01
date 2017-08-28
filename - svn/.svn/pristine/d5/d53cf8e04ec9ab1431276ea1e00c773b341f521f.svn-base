@@ -1,0 +1,21 @@
+﻿Public Class frmSearch
+    'Inherits frmBase
+    Protected Overrides Sub moreShown()
+
+        Me.TextBoxHeading.TextAlign = HorizontalAlignment.Center
+        Me.TextBoxHeading.BackColor = Color.FromArgb(0, 180, 180)
+        Me.TextBoxHeading.ForeColor = Color.FromArgb(255, 255, 255)
+
+        Me.TextBoxHeading.Width = Me.Width * 0.8
+
+        'Me.TextBoxHeading.Height = Me.TextBoxHeading.Height * 1.8
+        Me.TextBoxHeading.Margin = New System.Windows.Forms.Padding(Me.TextBoxHeading.Height * 2)
+        'Me.TextBoxHeading.Size = New System.Drawing.Size(Me.TextBoxHeading.Width, Me.TextBoxHeading.Height * 3)
+
+
+        Me.TextBoxHeading.Top = Me.Height * 0.1
+        Me.TextBoxHeading.Left = (Me.Width - Me.TextBoxHeading.Width) / 2
+
+        'Me.TextBoxHeading
+    End Sub
+End Class

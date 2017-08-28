@@ -1,0 +1,707 @@
+﻿Public Class frmBase
+
+    Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
+
+   
+
+    Protected Overridable Sub moreShown()
+        Me.ShowInTaskbar = False
+    End Sub
+
+    Protected Sub InitializeControls()
+        'Me.ShowInTaskbar = False
+        ''Me.Visible = True
+
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        'SaveFileDialog1
+        '
+        Me.SaveFileDialog1.DefaultExt = "xlsx"
+        Me.SaveFileDialog1.Filter = "Excel Workbook|*.xlsx"
+
+        'Me.Show()
+        'Me.WindowState = FormWindowState.Maximized
+        'Me.Height = 
+        'Dim intH As Integer = Screen.PrimaryScreen.Bounds.Height
+        'Dim intW As Integer = Screen.PrimaryScreen.Bounds.Width
+
+        Me.Top = 0
+        Me.Left = 0
+
+        Dim intH = Screen.PrimaryScreen.WorkingArea.Height
+        Dim intW = Screen.PrimaryScreen.WorkingArea.Width
+
+        'If Me.Height > intH Then
+        Me.Height = intH
+        Me.Width = intW
+        'End If
+
+        'Me.Height = 300
+
+        Me.Font = New Font(Me.Font.FontFamily, 22, Me.Font.Style)
+
+        Me.BackColor = Color.FromArgb(0, 220, 220)
+
+
+        With Me.Panel1
+            .AutoSize = False
+            .BorderStyle = BorderStyle.FixedSingle
+
+            '.Size = New System.Drawing.Size(0, 0)
+            .Height = Me.Height * 0.15
+            .Width = Me.Width
+            'minux height
+            .Top = Me.Height - .Height - Me.Height * 0.05
+            .Left = 0
+        End With
+
+
+
+        Dim cControl As Control
+        For Each cControl In Me.Panel1.Controls
+            'MsgBox(cControl.Name)
+            If (TypeOf cControl Is TextBox) Then
+                'cControl.Text = "abc"
+                'cControl.Font = New Font(cControl.Font.FontFamily, 22, cControl.Font.Style)
+
+                'cControl.ForeColor = Color.FromArgb(255, 255, 255)
+
+            ElseIf (TypeOf cControl Is Button) Then
+                With cControl
+                    'cControl.AutoSize = True
+                    '.Size = New System.Drawing.Size(0, 0)
+
+                    '.AutoSize = True
+                    '.Refresh()
+
+                    '.Size = New System.Drawing.Size(.Parent.Width / 8, .Parent.Height * 0.6)
+
+                    '.Margin = New Padding(0, 0, 0, 0)
+                    '.Top = (.Parent.Height) / 2 - .Height / 2
+                    '.Top = (.Parent.Height / 2) - (.Height / 2)
+
+                End With
+
+                cControl.Font = New Font(Me.Font.FontFamily, 15, Me.Font.Style)
+
+                cControl.BackColor = Color.FromArgb(0, 100, 255)
+                cControl.ForeColor = Color.FromArgb(255, 255, 255)
+
+
+
+
+            End If
+
+
+        Next cControl
+    End Sub
+
+
+
+
+
+    Protected Overridable Sub frmBase_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+
+
+        'If IsNothing(modGlobalVariables.lastHiddenForm) <> True Then
+        '    modGlobalVariables.lastHiddenForm.Visible = True
+        'Else
+        '    frmMainMenu.Visible = True
+        '    frmMainMenu.Activate()
+        'End If
+
+
+        Me.Dispose()
+
+    End Sub
+
+
+
+    Private Sub frmBase_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        'frmMainMenu.Visible = False
+        Me.KeyPreview = True
+
+        'drawseparator()
+
+        moreShown()
+
+
+    End Sub
+
+    Protected Overridable Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
+
+    End Sub
+
+
+    Public Sub DrawRoundedRectangle(ByVal objGraphics As Graphics, _
+                                ByVal m_intxAxis As Integer, _
+                                ByVal m_intyAxis As Integer, _
+                                ByVal m_intWidth As Integer, _
+                                ByVal m_intHeight As Integer, _
+                                ByVal m_diameter As Integer, Optional ByVal myPen As Pen = Nothing)
+
+
+
+        Try
+            'Dim g As Graphics
+            Dim BaseRect As New RectangleF(m_intxAxis, m_intyAxis, m_intWidth, m_intHeight)
+
+            Dim ArcRect As New RectangleF(BaseRect.Location,
+                                      New SizeF(m_diameter, m_diameter))
+            'top left Arc
+            objGraphics.DrawArc(myPen, ArcRect, 180, 90)
+            objGraphics.DrawLine(myPen, m_intxAxis + CInt(m_diameter / 2) - 1,
+                                 m_intyAxis,
+                                 m_intxAxis + m_intWidth - CInt(m_diameter / 2) + 1,
+                                 m_intyAxis)
+
+            ' top right arc
+            ArcRect.X = BaseRect.Right - m_diameter
+            objGraphics.DrawArc(myPen, ArcRect, 270, 90)
+            objGraphics.DrawLine(myPen, m_intxAxis + m_intWidth,
+                                 m_intyAxis + CInt(m_diameter / 2) - 1,
+                                 m_intxAxis + m_intWidth,
+                                 m_intyAxis + m_intHeight - CInt(m_diameter / 2) + 1)
+
+            ' bottom right arc
+            ArcRect.Y = BaseRect.Bottom - m_diameter
+            objGraphics.DrawArc(myPen, ArcRect, 0, 90)
+            objGraphics.DrawLine(myPen, m_intxAxis + CInt(m_diameter / 2) - 1,
+                                 m_intyAxis + m_intHeight,
+                                 m_intxAxis + m_intWidth - CInt(m_diameter / 2) + 1,
+                                 m_intyAxis + m_intHeight)
+
+            ' bottom left arc
+            ArcRect.X = BaseRect.Left
+            objGraphics.DrawArc(myPen, ArcRect, 90, 90)
+            objGraphics.DrawLine(myPen,
+                                 m_intxAxis, m_intyAxis + CInt(m_diameter / 2) - 1,
+                                 m_intxAxis,
+                                 m_intyAxis + m_intHeight - CInt(m_diameter / 2) + 1)
+        Catch ex As System.ArgumentException
+
+        End Try
+
+
+
+    End Sub
+
+
+
+
+
+
+    Protected Overridable Sub ButtonMAINMENU_Click(sender As Object, e As EventArgs) Handles ButtonMAINMENU.Click
+        'drawseparator()
+        Try
+            Me.DialogResult = Windows.Forms.DialogResult.Abort
+            frmMainMenu.Visible = True
+            frmMainMenu.WindowState = FormWindowState.Maximized
+            Me.Close()
+
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+
+
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+        Panel1.BorderStyle = BorderStyle.None
+
+        Dim intLineTickness As Double = 10
+        Dim myPen As New Pen(color:=Color.Blue, Width:=intLineTickness)
+        With sender
+            'e.Graphics.DrawLine(myPen, 0, .Top - CInt(intLineTickness / 2), .Width, .Top - CInt(intLineTickness / 2))
+            e.Graphics.DrawLine(myPen, e.ClipRectangle.Left, e.ClipRectangle.Top + CInt(intLineTickness / 2), e.ClipRectangle.Right, e.ClipRectangle.Top + CInt(intLineTickness / 2))
+
+
+            'for reference
+            'e.Graphics.DrawLine(myPen, e.ClipRectangle.Left, e.ClipRectangle.Top + CInt(intLineTickness / 2), e.ClipRectangle.Right, e.ClipRectangle.Top + e.ClipRectangle.Height - CInt(intLineTickness / 2))
+            'e.Graphics.DrawLine(myPen, e.ClipRectangle.Right, e.ClipRectangle.Top, e.ClipRectangle.Right, e.ClipRectangle.Top + e.ClipRectangle.Height - CInt(intLineTickness / 2))
+        End With
+
+        'e.Graphics.DrawLine(myPen, 0, e.ClipRectangle.Top - CInt(intLineTickness / 2), e.ClipRectangle.Width, e.ClipRectangle.Top - CInt(intLineTickness / 2))
+        'myGraphics.Dispose()
+        myPen.Dispose()
+
+
+        'drawseparator(e.Graphics)
+    End Sub
+
+    Protected Sub ShowOnlyControls(ByVal hCtrl As Hashtable)
+        'Me.Panel1.Height = Me.Height - Me.Panel1.Top
+        'Me.Margin = New Padding(0, 0, 0, 0)
+        'Me.Panel1.Margin = New Padding(0, 0, 0, 0)
+        'Me.Panel1.AutoSize = False
+
+        'Me.Panel1.Top = Me.Panel1.Top - Me.Panel1.Height
+
+        For Each ctrl As Control In Me.Panel1.Controls
+
+            'Debug.Print("hCtrls(""{0}"") = 0.5", ctrl.Name)
+            If hCtrl.ContainsKey(ctrl.Name) Then
+
+
+                If TypeOf ctrl Is Button Then
+                    ctrl.Width = ctrl.Parent.Width * 0.08
+                    ctrl.Height = ctrl.Parent.Height * 0.4
+
+                    Dim ctrlCasted As Button = DirectCast(ctrl, Button)
+                    ctrlCasted.TextAlign = ContentAlignment.MiddleCenter
+
+                    If ctrlCasted.Text.Length > 4 Then
+                        ctrlCasted.Font = New Font(ctrlCasted.Font.FontFamily, 11.0F, ctrlCasted.Font.Style)
+
+                    End If
+
+                    If ctrl.Name = "ButtonManualInput" Then
+                        ctrl.BackColor = Color.Green
+                    End If
+
+                End If
+
+
+                ctrl.Visible = True
+                'ctrl.Left = ctrl.Parent.Left + ctrl.Parent.Width * hCtrl(ctrl.Name) - ctrl.Width / 2
+                ctrl.Left = ctrl.Parent.Width * hCtrl(ctrl.Name) - ctrl.Width / 2
+
+                'thickness of border(one side) = 10
+                ctrl.Top = ctrl.Parent.Height * 0.5 - ctrl.Height * 0.5 + 10 * 0.5
+                'ctrl.Top = ctrl.Parent.Height * 0.9
+
+                'ctrl.Top = 0
+
+                'MsgBox("dd")
+                'Me.Panel1.Top = Me.Panel1.Top + Me.Panel1.Height
+
+                'Debug.Print(ctrl.Left)
+
+
+            Else
+                ctrl.Visible = False
+            End If
+            ' End If
+
+        Next
+    End Sub
+
+
+    ' ''Private Sub PanelSelectBy_Paint(sender As Object, e As PaintEventArgs) Handles PanelSelectBy.Paint
+    ' ''    e.Graphics.DrawRectangle(New Pen(Color.Violet, 3), Me.ClientRectangle)
+    ' ''    'ControlPaint.DrawBorder(e.Graphics, PanelSelectBy.DisplayRectangle, Color.Blue, ButtonBorderStyle.Solid);
+    ' ''End Sub
+
+    Protected Overridable Sub ButtonPRINT_Click(sender As Object, e As EventArgs) Handles ButtonPRINT.Click
+
+        Try
+
+            If Me.Controls.Find("CtrlPivotGrid1", True).Length = 0 Then
+                Exit Sub
+            End If
+
+            Dim ctrlTemp As pdt_es01_client.ctrlPivotGrid = Me.Controls("CtrlPivotGrid1")
+
+            Dim i As Integer = 0
+            SaveFileDialog1.FileName = Now.ToString("yyyyMMddHHmmss") & ".xlsx"
+            Dim objExcel As New clsGridToExcel
+
+            If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
+                Dim strTemplateFilename As String
+
+                If Me.Name = "frmWorkingData" Then
+                    strTemplateFilename = String.Format("{0}-{1}.xlsx", _
+                                                        Me.GetType.Name, modGlobalVariables.workingtypeName)
+                Else
+                    strTemplateFilename = Me.Name & ".xlsx"
+
+                End If
+
+                objExcel.WriteDataToExcel(ctrlTemp _
+                                          , strTemplateFilename _
+                                          , SaveFileDialog1.FileName)
+
+            End If
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+    End Sub
+
+
+    Protected Overridable Sub ButtonDELETE_Click(sender As Object, e As EventArgs) Handles ButtonDELETE.Click
+
+    End Sub
+
+    Private Sub ButtonManualInput_Click(sender As Object, e As EventArgs) Handles ButtonManualInput.Click
+
+        Try
+            Dim CtrlPivotGrid1 As pdt_es01_client.ctrlPivotGrid = Me.Controls("CtrlPivotGrid1")
+
+            If CtrlPivotGrid1.RowCount <= 0 Then
+                MsgBox("No data to update", MsgBoxStyle.Exclamation)
+                Return
+            End If
+
+            If CtrlPivotGrid1.SelectedRows.Count = 1 Then
+
+                'modGlobalVariables.reset()
+                Dim intLastRev As Integer = 0
+                Dim int2EditRev As Integer = 0
+                Dim int2MaxRev As Integer = CtrlPivotGrid1.SelectedRows(0).Cells("MAX_REV").Value
+                Dim engine_no As String = CtrlPivotGrid1.SelectedRows(0).Cells("ENGINE_NO").Value
+
+                'MsgBox(CtrlPivotGrid1.SelectedRows(0).Cells("MAX_REV").Value)
+                For Each row As DataGridViewRow In CtrlPivotGrid1.Rows
+                    If row.Cells("ENGINE_NO").Value = engine_no And row.Cells("REV_NO").Value > intLastRev Then
+                        intLastRev = row.Cells("REV_NO").Value
+                    End If
+                Next
+
+                If int2MaxRev = CtrlPivotGrid1.SelectedRows(0).Cells("REV_NO").Value Then
+                    int2EditRev = int2MaxRev
+                Else
+                    int2EditRev = intLastRev + 1
+                    'intLastRev = intLastRev + 1
+                End If
+
+                'MsgBox(intLastRev)
+                'Exit Sub
+
+
+                Dim result1 As DialogResult = MessageBox.Show(String.Format("YES: to edit{0}NO: to add new revision{0}CANCEL: to do nothing.", Environment.NewLine), _
+                              "EDIT selected revision?", _
+                              MessageBoxButtons.YesNoCancel)
+
+
+                If result1 = Windows.Forms.DialogResult.Yes Then
+                    int2EditRev = CtrlPivotGrid1.SelectedRows(0).Cells("REV_NO").Value
+                ElseIf result1 = Windows.Forms.DialogResult.Cancel Then
+                    Exit Sub
+
+                Else
+                    If int2EditRev > CtrlPivotGrid1.SelectedRows(0).Cells("MAX_REV").Value Then
+
+                        MessageBox.Show("Revision no. is already reach the maximum revision.", "Can not create new revision!")
+                        Exit Sub
+                    End If
+
+
+
+                End If
+
+                modGlobalVariables.searchBy = modGlobalVariables.SEARCH_BY.ENGINE_NO
+
+                modGlobalVariables.arrIn.Clear()
+                modGlobalVariables.arrIn.Add(engine_no)
+                modGlobalVariables.arrIn.Add(CtrlPivotGrid1.SelectedRows(0).Cells("REV_NO").Value)
+                modGlobalVariables.arrIn.Add(int2EditRev)
+                modGlobalVariables.arrIn.Add(int2MaxRev)
+
+
+                Dim frm As New frmProductionManualInputWorkingData
+                If frm.ShowDialog() = Windows.Forms.DialogResult.Abort Then
+                    Me.DialogResult = Windows.Forms.DialogResult.Abort
+                    Me.Close()
+                End If
+
+                'Me.Close()
+
+            Else
+                MsgBox("Please select data first.", "No row selected!")
+            End If
+
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+
+
+
+    End Sub
+
+    Private Sub ButtonUPDATE_Click(sender As Object, e As EventArgs) Handles ButtonUPDATE.Click
+        Try
+
+            If modValidate.ValidationParamSet.CONFIRM_SAVE.MyMessageBox() <> DialogResult.Yes Then
+                Return
+            End If
+
+            Dim m_ds As DataSet1
+            Dim m_tam As DataSet1TableAdapters.TableAdapterManager
+
+            Dim m_taSettingColumns As DataSet1TableAdapters.V_SETTING_COLUMNSTableAdapter
+            m_ds = New DataSet1
+            m_taSettingColumns = New DataSet1TableAdapters.V_SETTING_COLUMNSTableAdapter
+            m_tam = New DataSet1TableAdapters.TableAdapterManager
+
+            m_tam.ENGINE_LISTTableAdapter = New DataSet1TableAdapters.ENGINE_LISTTableAdapter
+            m_tam.WORKING_DATA_DATETIMETableAdapter = New DataSet1TableAdapters.WORKING_DATA_DATETIMETableAdapter
+            m_tam.WORKING_DATA_INTTableAdapter = New DataSet1TableAdapters.WORKING_DATA_INTTableAdapter
+            m_tam.WORKING_DATA_STRTableAdapter = New DataSet1TableAdapters.WORKING_DATA_STRTableAdapter
+
+
+            Dim intColumnId As Integer
+            Dim strEnginNo As String
+            Dim intEngineId As Integer
+            Dim intRevNo As Integer
+            Dim drSettingColumns As DataSet1.V_SETTING_COLUMNSRow
+
+            Dim CtrlPivotGrid1 As pdt_es01_client.ctrlPivotGrid = Me.Controls("CtrlPivotGrid1")
+
+            If CtrlPivotGrid1.RowCount <= 0 Then
+                MsgBox("No data to update", MsgBoxStyle.Exclamation)
+                Return
+            End If
+
+            If CtrlPivotGrid1.Rows.Count <> 1 Then
+                Exit Sub
+            End If
+
+            intEngineId = CtrlPivotGrid1.Item("ENGINE_ID", 0).Value
+            strEnginNo = CtrlPivotGrid1.Item("ENGINE_NO", 0).Value
+            intRevNo = CtrlPivotGrid1.Item("REV_NO", 0).Value
+
+            m_tam.ENGINE_LISTTableAdapter.FillByENGINE_ID(m_ds.ENGINE_LIST, intEngineId)
+
+            m_taSettingColumns.FillWorkingColumns(m_ds.V_SETTING_COLUMNS, modGlobalVariables.workingtypeID)
+
+            Dim strListInvalidCells As String = ""
+
+            For i As Integer = 0 To CtrlPivotGrid1.ColumnCount - 1
+                Dim strRegExp As String
+
+                Dim strColumnName As String
+                If CtrlPivotGrid1.Columns(i).Visible Then
+                    If CtrlPivotGrid1.Columns(i).Name Like "ID*" _
+                            AndAlso CtrlPivotGrid1.Columns(i).Name <> "ID" Then
+
+
+                        intColumnId = CInt(CtrlPivotGrid1.Columns(i).Name.Substring(2))
+
+
+
+                        'drSettingColumns = m_ds.V_SETTING_COLUMNS.FindByID(intColumnId)
+                        'strRegExp = m_ds.V_SETTING_COLUMNS.FindByID(intEngineId).COLUMN_REGEX
+                        'strRegExp = m_ds.V_SETTING_COLUMNS.FindByID(CtrlPivotGrid1.Item("WORKING_TYPE_ID", 0).Value).COLUMN_REGEX
+                        strRegExp = m_ds.V_SETTING_COLUMNS.FindByID(intColumnId).COLUMN_REGEX
+
+
+
+                        If Not modValidate.CheckRegExp(CtrlPivotGrid1.Item(i, 0).Value(), strRegExp) Then
+                            'strColumnName = m_ds.V_SETTING_COLUMNS.FindByID(CtrlPivotGrid1.Item("WORKING_TYPE_ID", 0).Value).COLUMN_NAME
+                            strColumnName = m_ds.V_SETTING_COLUMNS.FindByID(intColumnId).COLUMN_NAME
+                            strColumnName = strColumnName.Substring(strColumnName.LastIndexOf("|") + 1)
+                            strListInvalidCells &= String.Format("""{0}"" need to be format as ""{1}""" & Environment.NewLine, _
+                                                                 strColumnName, strRegExp)
+                        End If
+                    End If
+                    
+
+
+                End If
+
+
+
+            Next
+
+            If strListInvalidCells <> "" Then
+
+                strListInvalidCells = "The following columns contains invalid format:" & Environment.NewLine & strListInvalidCells
+                MessageBox.Show(strListInvalidCells, "Can not UPDATE!")
+
+                Exit Sub
+
+            End If
+
+
+
+
+            'If intRevNo = CtrlPivotGrid1.Item("MAX_REV", 0).Value Then
+            If intRevNo = CtrlPivotGrid1.Item("REV_NO", 0).Value Then
+
+                m_tam.WORKING_DATA_STRTableAdapter.FillByWorkingTypeId_EngineNo_REV(m_ds.WORKING_DATA_STR, modGlobalVariables.workingtypeID, strEnginNo, intRevNo)
+                m_tam.WORKING_DATA_INTTableAdapter.FillByWorkingTypeId_EngineNo_REV(m_ds.WORKING_DATA_INT, modGlobalVariables.workingtypeID, strEnginNo, intRevNo)
+                m_tam.WORKING_DATA_DATETIMETableAdapter.FillByWorkingTypeId_EngineNo_REV(m_ds.WORKING_DATA_DATETIME, modGlobalVariables.workingtypeID, strEnginNo, intRevNo)
+
+
+                For i As Integer = 0 To CtrlPivotGrid1.ColumnCount - 1
+                    If CtrlPivotGrid1.Columns(i).Visible Then
+                        If CtrlPivotGrid1.Columns(i).Name Like "ID*" _
+                            AndAlso CtrlPivotGrid1.Columns(i).Name <> "ID" Then
+                            intColumnId = CInt(CtrlPivotGrid1.Columns(i).Name.Substring(2))
+
+
+
+                            drSettingColumns = m_ds.V_SETTING_COLUMNS.FindByID(intColumnId)
+
+                            Select Case drSettingColumns.DATA_TYPE
+                                Case DataType.nString
+                                    Dim dr As DataSet1.WORKING_DATA_STRRow
+                                    dr = m_ds.WORKING_DATA_STR.FindByENGINE_IDWORKING_COLUMNS_IDREV_NO(intEngineId, intColumnId, intRevNo)
+
+                                    If Not (dr Is Nothing) Then
+                                        'dr.ENGINE_ID = intEngineId
+                                        'dr.WORKING_COLUMNS_ID = intColumnId
+                                        dr.REVISE_DATE = Date.Now
+                                        'dr.REV_NO = modGlobalVariables.arrIn(2)
+                                        dr.DATA = CtrlPivotGrid1.Item(i, 0).Value
+                                        'm_ds.WORKING_DATA_STR.AddWORKING_DATA_STRRow(dr)
+                                        ' ''Else
+                                        ' ''    dr = m_ds.WORKING_DATA_STR.NewWORKING_DATA_STRRow()
+                                        ' ''    dr.ENGINE_ID = intEngineId
+                                        ' ''    dr.WORKING_COLUMNS_ID = intColumnId
+                                        ' ''    dr.REVISE_DATE = Date.Now
+                                        ' ''    dr.REV_NO = modGlobalVariables.arrIn(2)
+                                        ' ''    dr.DATA = CtrlPivotGrid1.Item(i, 0).Value
+                                        ' ''    m_ds.WORKING_DATA_STR.AddWORKING_DATA_STRRow(dr)
+                                    End If
+
+
+                                    'm_ds.WORKING_DATA_STR.Rows.Add(dr)
+                                Case DataType.nInteger
+                                    Dim dr As DataSet1.WORKING_DATA_INTRow
+                                    dr = m_ds.WORKING_DATA_INT.FindByENGINE_IDWORKING_COLUMNS_IDREV_NO(intEngineId, intColumnId, intRevNo)
+                                    If Not (dr Is Nothing) Then
+                                        'dr.ENGINE_ID = intEngineId
+                                        'dr.WORKING_COLUMNS_ID = intColumnId
+                                        dr.REVISE_DATE = Date.Now
+                                        'dr.REV_NO = modGlobalVariables.arrIn(2)
+                                        dr.DATA = CtrlPivotGrid1.Item(i, 0).Value
+                                        'm_ds.WORKING_DATA_STR.AddWORKING_DATA_STRRow(dr)
+                                        ' ''Else
+                                        ' ''    dr = m_ds.WORKING_DATA_INT.NewWORKING_DATA_INTRow
+                                        ' ''    dr.ENGINE_ID = intEngineId
+                                        ' ''    dr.WORKING_COLUMNS_ID = intColumnId
+                                        ' ''    dr.REVISE_DATE = Date.Now
+                                        ' ''    dr.REV_NO = modGlobalVariables.arrIn(2)
+                                        ' ''    dr.DATA = CtrlPivotGrid1.Item(i, 0).Value
+                                        ' ''    m_ds.WORKING_DATA_INT.AddWORKING_DATA_INTRow(dr)
+                                    End If
+                                    'dr.ENGINE_ID = intEngineId
+                                    'dr.WORKING_COLUMNS_ID = intColumnId
+                                    'dr.REVISE_DATE = Date.Now
+                                    'dr.REV_NO = modGlobalVariables.arrIn(2)
+                                    'dr.DATA = CtrlPivotGrid1.Item(i, 0).Value
+                                    'm_ds.WORKING_DATA_INT.AddWORKING_DATA_INTRow(dr)
+                                Case DataType.nDateTime
+                                    Dim dr As DataSet1.WORKING_DATA_DATETIMERow
+                                    'dr = m_ds.WORKING_DATA_INT.FindByENGINE_IDWORKING_COLUMNS_IDREV_NO(intEngineId, intColumnId, intRevNo)
+                                    dr = m_ds.WORKING_DATA_DATETIME.FindByENGINE_IDWORKING_COLUMNS_IDREV_NO(intEngineId, intColumnId, intRevNo)
+                                    If Not (dr Is Nothing) Then
+                                        'dr.ENGINE_ID = intEngineId
+                                        'dr.WORKING_COLUMNS_ID = intColumnId
+                                        dr.REVISE_DATE = Date.Now
+                                        'dr.REV_NO = modGlobalVariables.arrIn(2)
+                                        dr.DATA = CtrlPivotGrid1.Item(i, 0).Value
+                                        'm_ds.WORKING_DATA_STR.AddWORKING_DATA_STRRow(dr)
+                                        ' ''Else
+                                        ' ''    If IsDate(CtrlPivotGrid1.Item(i, 0).Value) Then
+                                        ' ''        dr = m_ds.WORKING_DATA_DATETIME.NewWORKING_DATA_DATETIMERow
+                                        ' ''        dr.ENGINE_ID = intEngineId
+                                        ' ''        dr.WORKING_COLUMNS_ID = intColumnId
+                                        ' ''        dr.REVISE_DATE = Date.Now
+                                        ' ''        dr.REV_NO = modGlobalVariables.arrIn(2)
+                                        ' ''        dr.DATA = CtrlPivotGrid1.Item(i, 0).Value
+                                        ' ''        m_ds.WORKING_DATA_DATETIME.AddWORKING_DATA_DATETIMERow(dr)
+                                        ' ''    End If
+
+                                    End If
+
+                                    'dr.ENGINE_ID = intEngineId
+                                    'dr.WORKING_COLUMNS_ID = intColumnId
+                                    'dr.REVISE_DATE = Date.Now
+                                    'dr.REV_NO = modGlobalVariables.arrIn(2)
+                                    'dr.DATA = CtrlPivotGrid1.Item(i, 0).Value
+                                    'm_ds.WORKING_DATA_DATETIME.AddWORKING_DATA_DATETIMERow(dr)
+
+                            End Select
+                        End If
+                    End If
+                Next
+
+            Else
+                For i As Integer = 0 To CtrlPivotGrid1.ColumnCount - 1
+                    If CtrlPivotGrid1.Columns(i).Visible Then
+                        If CtrlPivotGrid1.Columns(i).Name Like "ID*" _
+                            AndAlso CtrlPivotGrid1.Columns(i).Name <> "ID" Then
+                            intColumnId = CInt(CtrlPivotGrid1.Columns(i).Name.Substring(2))
+
+
+
+                            drSettingColumns = m_ds.V_SETTING_COLUMNS.FindByID(intColumnId)
+
+                            Select Case drSettingColumns.DATA_TYPE
+                                Case DataType.nString
+                                    Dim dr As DataSet1.WORKING_DATA_STRRow
+                                    dr = m_ds.WORKING_DATA_STR.NewWORKING_DATA_STRRow()
+                                    dr.ENGINE_ID = intEngineId
+                                    dr.WORKING_COLUMNS_ID = intColumnId
+                                    dr.REVISE_DATE = Date.Now
+                                    dr.REV_NO = modGlobalVariables.arrIn(2)
+                                    dr.DATA = CtrlPivotGrid1.Item(i, 0).Value
+                                    m_ds.WORKING_DATA_STR.AddWORKING_DATA_STRRow(dr)
+
+                                    'm_ds.WORKING_DATA_STR.Rows.Add(dr)
+                                Case DataType.nInteger
+                                    Dim dr As DataSet1.WORKING_DATA_INTRow
+                                    dr = m_ds.WORKING_DATA_INT.NewWORKING_DATA_INTRow
+                                    dr.ENGINE_ID = intEngineId
+                                    dr.WORKING_COLUMNS_ID = intColumnId
+                                    dr.REVISE_DATE = Date.Now
+                                    dr.REV_NO = modGlobalVariables.arrIn(2)
+                                    dr.DATA = CtrlPivotGrid1.Item(i, 0).Value
+                                    m_ds.WORKING_DATA_INT.AddWORKING_DATA_INTRow(dr)
+                                Case DataType.nDateTime
+                                    If Not IsDate(CtrlPivotGrid1.Item(i, 0).Value) Then
+                                        MsgBox(String.Format("Not Valid date at WORKING_COLUMNS_ID[{0}]", _
+                                                             intColumnId))
+                                    Else
+                                        Dim dr As DataSet1.WORKING_DATA_DATETIMERow
+                                        dr = m_ds.WORKING_DATA_DATETIME.NewWORKING_DATA_DATETIMERow
+                                        dr.ENGINE_ID = intEngineId
+                                        dr.WORKING_COLUMNS_ID = intColumnId
+                                        dr.REVISE_DATE = Date.Now
+                                        dr.REV_NO = modGlobalVariables.arrIn(2)
+                                        dr.DATA = CtrlPivotGrid1.Item(i, 0).Value
+                                        m_ds.WORKING_DATA_DATETIME.AddWORKING_DATA_DATETIMERow(dr)
+                                    End If
+
+
+
+                            End Select
+                        End If
+                    End If
+                Next
+            End If
+
+            m_tam.UpdateAll(m_ds)
+
+            Me.Close()
+
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+    End Sub
+
+    Protected Overridable Sub ButtonCANCEL_Click(sender As Object, e As EventArgs) Handles ButtonCANCEL.Click
+        Me.Close()
+    End Sub
+
+    Protected Overridable Sub ButtonHISTORY_Click(sender As Object, e As EventArgs) Handles ButtonHISTORY.Click
+
+    End Sub
+
+    Protected Overridable Sub ButtonEDIT_Click(sender As Object, e As EventArgs) Handles ButtonEDIT.Click
+
+    End Sub
+
+    Protected Overridable Sub ButtonBACK_Click(sender As Object, e As EventArgs) Handles ButtonBACK.Click
+
+    End Sub
+
+    Protected Overridable Sub rdoLot_CheckedChanged(sender As Object, e As EventArgs) Handles rdoLot.CheckedChanged
+
+    End Sub
+
+    Protected Overridable Sub rdoUnit_CheckedChanged(sender As Object, e As EventArgs) Handles rdoUnit.CheckedChanged
+
+    End Sub
+End Class

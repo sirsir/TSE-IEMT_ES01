@@ -1,0 +1,298 @@
+﻿Public Class frmBase
+
+    Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
+
+   
+
+    Protected Overridable Sub moreShown()
+
+    End Sub
+
+    Protected Sub InitializeControls()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        'SaveFileDialog1
+        '
+        Me.SaveFileDialog1.DefaultExt = "xlsx"
+        Me.SaveFileDialog1.Filter = "Excel Workbook|*.xlsx"
+
+        Me.Show()
+        'Me.WindowState = FormWindowState.Maximized
+        'Me.Height = 
+        'Dim intH As Integer = Screen.PrimaryScreen.Bounds.Height
+        'Dim intW As Integer = Screen.PrimaryScreen.Bounds.Width
+
+        Me.Top = 0
+        Me.Left = 0
+
+        Dim intH = Screen.PrimaryScreen.WorkingArea.Height
+        Dim intW = Screen.PrimaryScreen.WorkingArea.Width
+
+        'If Me.Height > intH Then
+        Me.Height = intH
+        Me.Width = intW
+        'End If
+
+        'Me.Height = 300
+
+        Me.Font = New Font(Me.Font.FontFamily, 22, Me.Font.Style)
+
+        Me.BackColor = Color.FromArgb(0, 220, 220)
+
+
+        With Me.Panel1
+            .AutoSize = False
+            .BorderStyle = BorderStyle.FixedSingle
+
+            '.Size = New System.Drawing.Size(0, 0)
+            .Height = Me.Height * 0.15
+            .Width = Me.Width
+            'minux height
+            .Top = Me.Height - .Height - Me.Height * 0.05
+            .Left = 0
+        End With
+
+
+
+        Dim cControl As Control
+        For Each cControl In Me.Panel1.Controls
+            'MsgBox(cControl.Name)
+            If (TypeOf cControl Is TextBox) Then
+                'cControl.Text = "abc"
+                'cControl.Font = New Font(cControl.Font.FontFamily, 22, cControl.Font.Style)
+
+                'cControl.ForeColor = Color.FromArgb(255, 255, 255)
+
+            ElseIf (TypeOf cControl Is Button) Then
+                With cControl
+                    'cControl.AutoSize = True
+                    '.Size = New System.Drawing.Size(0, 0)
+
+                    '.AutoSize = True
+                    '.Refresh()
+
+                    '.Size = New System.Drawing.Size(.Parent.Width / 8, .Parent.Height * 0.6)
+
+                    '.Margin = New Padding(0, 0, 0, 0)
+                    '.Top = (.Parent.Height) / 2 - .Height / 2
+                    '.Top = (.Parent.Height / 2) - (.Height / 2)
+
+                End With
+
+                cControl.Font = New Font(Me.Font.FontFamily, 15, Me.Font.Style)
+
+                cControl.BackColor = Color.FromArgb(0, 100, 255)
+                cControl.ForeColor = Color.FromArgb(255, 255, 255)
+
+
+
+
+            End If
+
+
+        Next cControl
+    End Sub
+
+
+
+
+
+    Private Sub frmBase_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        frmMainMenu.Visible = True
+        frmMainMenu.Activate()
+
+    End Sub
+
+
+
+    Private Sub frmBase_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        frmMainMenu.Visible = False
+        Me.KeyPreview = True
+
+        'drawseparator()
+
+        moreShown()
+
+
+    End Sub
+
+    Protected Overridable Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
+
+    End Sub
+
+
+    Public Sub DrawRoundedRectangle(ByVal objGraphics As Graphics, _
+                                ByVal m_intxAxis As Integer, _
+                                ByVal m_intyAxis As Integer, _
+                                ByVal m_intWidth As Integer, _
+                                ByVal m_intHeight As Integer, _
+                                ByVal m_diameter As Integer, Optional ByVal myPen As Pen = Nothing)
+
+
+
+        Try
+            'Dim g As Graphics
+            Dim BaseRect As New RectangleF(m_intxAxis, m_intyAxis, m_intWidth, m_intHeight)
+
+            Dim ArcRect As New RectangleF(BaseRect.Location,
+                                      New SizeF(m_diameter, m_diameter))
+            'top left Arc
+            objGraphics.DrawArc(myPen, ArcRect, 180, 90)
+            objGraphics.DrawLine(myPen, m_intxAxis + CInt(m_diameter / 2) - 1,
+                                 m_intyAxis,
+                                 m_intxAxis + m_intWidth - CInt(m_diameter / 2) + 1,
+                                 m_intyAxis)
+
+            ' top right arc
+            ArcRect.X = BaseRect.Right - m_diameter
+            objGraphics.DrawArc(myPen, ArcRect, 270, 90)
+            objGraphics.DrawLine(myPen, m_intxAxis + m_intWidth,
+                                 m_intyAxis + CInt(m_diameter / 2) - 1,
+                                 m_intxAxis + m_intWidth,
+                                 m_intyAxis + m_intHeight - CInt(m_diameter / 2) + 1)
+
+            ' bottom right arc
+            ArcRect.Y = BaseRect.Bottom - m_diameter
+            objGraphics.DrawArc(myPen, ArcRect, 0, 90)
+            objGraphics.DrawLine(myPen, m_intxAxis + CInt(m_diameter / 2) - 1,
+                                 m_intyAxis + m_intHeight,
+                                 m_intxAxis + m_intWidth - CInt(m_diameter / 2) + 1,
+                                 m_intyAxis + m_intHeight)
+
+            ' bottom left arc
+            ArcRect.X = BaseRect.Left
+            objGraphics.DrawArc(myPen, ArcRect, 90, 90)
+            objGraphics.DrawLine(myPen,
+                                 m_intxAxis, m_intyAxis + CInt(m_diameter / 2) - 1,
+                                 m_intxAxis,
+                                 m_intyAxis + m_intHeight - CInt(m_diameter / 2) + 1)
+        Catch ex As System.ArgumentException
+
+        End Try
+
+        
+
+    End Sub
+
+
+
+
+
+
+    Private Sub ButtonMAINMENU_Click(sender As Object, e As EventArgs) Handles ButtonMAINMENU.Click
+        'drawseparator()
+
+
+
+        frmMainMenu.Visible = True
+        frmMainMenu.WindowState = FormWindowState.Maximized
+        'MsgBox("ddd")
+        Me.Close()
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+        Panel1.BorderStyle = BorderStyle.None
+
+        Dim intLineTickness As Double = 10
+        Dim myPen As New Pen(color:=Color.Blue, Width:=intLineTickness)
+        With sender
+            'e.Graphics.DrawLine(myPen, 0, .Top - CInt(intLineTickness / 2), .Width, .Top - CInt(intLineTickness / 2))
+            e.Graphics.DrawLine(myPen, e.ClipRectangle.Left, e.ClipRectangle.Top + CInt(intLineTickness / 2), e.ClipRectangle.Right, e.ClipRectangle.Top + CInt(intLineTickness / 2))
+
+
+            'for reference
+            'e.Graphics.DrawLine(myPen, e.ClipRectangle.Left, e.ClipRectangle.Top + CInt(intLineTickness / 2), e.ClipRectangle.Right, e.ClipRectangle.Top + e.ClipRectangle.Height - CInt(intLineTickness / 2))
+            'e.Graphics.DrawLine(myPen, e.ClipRectangle.Right, e.ClipRectangle.Top, e.ClipRectangle.Right, e.ClipRectangle.Top + e.ClipRectangle.Height - CInt(intLineTickness / 2))
+        End With
+
+        'e.Graphics.DrawLine(myPen, 0, e.ClipRectangle.Top - CInt(intLineTickness / 2), e.ClipRectangle.Width, e.ClipRectangle.Top - CInt(intLineTickness / 2))
+        'myGraphics.Dispose()
+        myPen.Dispose()
+
+
+        'drawseparator(e.Graphics)
+    End Sub
+
+    Protected Sub ShowOnlyControls(ByVal hCtrl As Hashtable)
+        'Me.Panel1.Height = Me.Height - Me.Panel1.Top
+        'Me.Margin = New Padding(0, 0, 0, 0)
+        'Me.Panel1.Margin = New Padding(0, 0, 0, 0)
+        'Me.Panel1.AutoSize = False
+
+        'Me.Panel1.Top = Me.Panel1.Top - Me.Panel1.Height
+
+        For Each ctrl As Control In Me.Panel1.Controls
+
+            'Debug.Print("hCtrls(""{0}"") = 0.5", ctrl.Name)
+            If hCtrl.ContainsKey(ctrl.Name) Then
+
+
+                If TypeOf ctrl Is Button Then
+                    ctrl.Width = ctrl.Parent.Width * 0.08
+                    ctrl.Height = ctrl.Parent.Height * 0.4
+
+                    Dim ctrlCasted As Button = DirectCast(ctrl, Button)
+                    ctrlCasted.TextAlign = ContentAlignment.MiddleCenter
+
+                    If ctrlCasted.Text.Length > 4 Then
+                        ctrlCasted.Font = New Font(ctrlCasted.Font.FontFamily, 11.0F, ctrlCasted.Font.Style)
+
+                    End If
+
+                End If
+
+
+                ctrl.Visible = True
+                'ctrl.Left = ctrl.Parent.Left + ctrl.Parent.Width * hCtrl(ctrl.Name) - ctrl.Width / 2
+                ctrl.Left = ctrl.Parent.Width * hCtrl(ctrl.Name) - ctrl.Width / 2
+
+                'thickness of border(one side) = 10
+                ctrl.Top = ctrl.Parent.Height * 0.5 - ctrl.Height * 0.5 + 10 * 0.5
+                'ctrl.Top = ctrl.Parent.Height * 0.9
+
+                'ctrl.Top = 0
+
+                'MsgBox("dd")
+                'Me.Panel1.Top = Me.Panel1.Top + Me.Panel1.Height
+
+                'Debug.Print(ctrl.Left)
+
+
+            Else
+                ctrl.Visible = False
+            End If
+            ' End If
+
+        Next
+    End Sub
+
+
+    Private Sub PanelSelectBy_Paint(sender As Object, e As PaintEventArgs) Handles PanelSelectBy.Paint
+        e.Graphics.DrawRectangle(New Pen(Color.Violet, 3), Me.ClientRectangle)
+        'ControlPaint.DrawBorder(e.Graphics, PanelSelectBy.DisplayRectangle, Color.Blue, ButtonBorderStyle.Solid);
+    End Sub
+
+    Private Sub ButtonPRINT_Click(sender As Object, e As EventArgs) Handles ButtonPRINT.Click
+
+
+        If Me.Controls.Find("CtrlPivotGrid1", True).Length = 0 Then
+            Exit Sub
+        End If
+
+        Dim ctrlTemp As pdt_es01_client.ctrlPivotGrid = Me.Controls("CtrlPivotGrid1")
+
+        Dim i As Integer = 0
+        SaveFileDialog1.FileName = Now.ToString("yyyyMMddHHmmss") & ".xlsx"
+        Dim objExcel As New clsGridToExcel
+        Try
+            If SaveFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
+
+                objExcel.WriteDataToExcel(ctrlTemp _
+                                          , Me.Name & ".xlsx" _
+                                          , SaveFileDialog1.FileName)
+
+            End If
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+    End Sub
+End Class

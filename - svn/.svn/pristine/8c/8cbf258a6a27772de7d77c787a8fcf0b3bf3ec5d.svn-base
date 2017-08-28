@@ -1,0 +1,44 @@
+﻿Public Class frmSearchByAsmDate
+
+    Private Sub frmSearchByAsmDate_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TextBoxHeading.Text = "Search by ASM DATE"
+
+        TextBoxIn1.Text = "20150701"
+        TextBoxIn2.Text = "20150702"
+    End Sub
+
+
+    Protected Overrides Sub ButtonOK_Click(sender As Object, e As EventArgs)
+        'GlobalVariables.reset()
+        modGlobalVariables.reset()
+
+        'GlobalVariables.in_engineNo = TextBoxIn1.Text
+        'modGlobalVariables.in_engineNo = TextBoxIn1.Text
+
+        Dim strTemp1 As String = clsStringUtilities.string2date(TextBoxIn1.Text)
+        Dim strTemp2 As String = clsStringUtilities.string2date(TextBoxIn2.Text)
+
+        If strTemp1 = "" Or strTemp2 = "" Then
+            Exit Sub
+        End If
+        clsStringUtilities.string2date(TextBoxIn2.Text)
+
+
+
+        'modGlobalVariables.arrIn.Add(TextBoxIn1.Text)
+        'modGlobalVariables.arrIn.Add(TextBoxIn2.Text)
+
+        modGlobalVariables.arrIn.Add(strTemp1)
+        modGlobalVariables.arrIn.Add(strTemp2)
+        modGlobalVariables.searchBy = modGlobalVariables.SEARCH_BY.LINE_ON_TIME__ASM_DATE
+
+
+        modGlobalVariables.tabletype = modGlobalVariables.TABLE2SHOW.ENGINE_LIST__ProductionDateSearch
+        frmProductionDateSearch.Show()
+
+        Me.Close()
+
+    End Sub
+
+
+End Class

@@ -1,0 +1,114 @@
+﻿Public Class frmSerialNo_PartNo_Show
+    Private m_dtSerialNoView As DataSet1.SERIAL_NO_PART_NO_SHOWDataTable
+    'Private m_dtSerialNoView As DataSet1.ENGINE_LISTDataTable
+    Private m_dtTraceString As DataSet1.TRACE_DATA_STRDataTable
+    Private m_dtTraceInteger As DataSet1.TRACE_DATA_INTDataTable
+    Private m_dtTraceDatetime As DataSet1.TRACE_DATA_DATETIMEDataTable
+    Private m_dtSettingColumns As DataSet1.V_SETTING_COLUMNSDataTable
+
+    Private m_taSerialNoView As DataSet1TableAdapters.SERIAL_NO_PART_NO_SHOWTableAdapter
+    'Private m_taSerialNoView As DataSet1TableAdapters.ENGINE_LISTTableAdapter
+    Private m_taTraceString As DataSet1TableAdapters.TRACE_DATA_STRTableAdapter
+    Private m_taTraceInteger As DataSet1TableAdapters.TRACE_DATA_INTTableAdapter
+    Private m_taTraceDatetime As DataSet1TableAdapters.TRACE_DATA_DATETIMETableAdapter
+    Private m_taSettingColumns As DataSet1TableAdapters.V_SETTING_COLUMNSTableAdapter
+
+    Public Property pp_spsTRACE_COLUMNS_ID As Integer
+    Public Property pp_spsSERIAL_NO As String
+
+    'Friend WithEvents m_objPivotGrid As ctrlPivotGrid
+
+    Private Sub frmWorkingDataShow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            LoadData()
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+    End Sub
+
+    Public Sub LoadData()
+        'm_taSerialNoView.FillAllRevEngIdAndWorkingTypeId(m_dtSerialNoView, 6, 2)
+        m_dtTraceString = Nothing
+        m_dtTraceInteger = Nothing
+        m_dtTraceDatetime = Nothing
+        m_taSettingColumns = Nothing
+        'm_dtSerialNoView = m_taSerialNoView.GetAllRevByEngIdAndWorkingTypeId(38, 11)
+        'm_taSerialNoView.FillByEngineNo(m_dtSerialNoView, 11)
+        'MsgBox(pp_spsTRACE_COLUMNS_ID.ToString)
+        m_dtSerialNoView = m_taSerialNoView.GetDataMaxRevBySerialNoAndTraceId(pp_spsSERIAL_NO, pp_spsTRACE_COLUMNS_ID)
+        'm_dtTraceString = m_taTraceString.GetDataBySerialNoAndTraceId(pp_spsSERIAL_NO, pp_spsTRACE_COLUMNS_ID)
+        'm_dtTraceInteger = m_taTraceInteger.GetDataBySerialNoAndTraceId(-1, pp_spsTRACE_COLUMNS_ID)
+        'm_dtTraceDatetime = m_taTraceDatetime.GetDataBySerialNoAndTraceId(DATE_NULL, pp_spsTRACE_COLUMNS_ID)
+        'm_dtSettingColumns = m_taSettingColumns.GetWorkingColumns(pp_spsTRACE_COLUMNS_ID)
+        'MsgBox("", )
+
+        '"ENGINE_ID" _
+        'Dim strHiddenColNames() As String = {}
+        'Dim strHiddenColNames() As String = {"ENGINE_ID"}
+
+        Dim astrDisplayColNames() As String = {"REV_NO" _
+                                              , "PART_NAME" _
+                                              , "DATA" _
+                                              , "LINE_ON_TIME" _
+                                              , "LINE_OFF_TIME" _
+                                              , "ENGINE_NO" _
+                                              , "MODEL_LOT" _
+                                              , "UNIT_NO" _
+                                              , "ENGINE_ASM_NO"
+                                              }
+
+        ' , {"ENGINE_ID", "REV_NO"} _
+        CtrlPivotGrid1.SetDataSource(m_dtSerialNoView _
+                                           , m_dtTraceString _
+                                           , m_dtTraceInteger _
+                                           , m_dtTraceDatetime _
+                                           , m_dtSettingColumns _
+                                           , {"ENGINE_ID", "REV_NO"} _
+                                           , "WORKING_COLUMNS_ID" _
+                                           , {"ENGINE_ID", "REV_NO"} _
+                                           , "DATA" _
+                                           , astrDisplayColNames)
+
+    End Sub
+
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        m_dtSerialNoView = New DataSet1.SERIAL_NO_PART_NO_SHOWDataTable
+        'm_dtSerialNoView = New DataSet1.ENGINE_LISTDataTable
+        m_dtTraceString = New DataSet1.TRACE_DATA_STRDataTable
+        m_dtTraceInteger = New DataSet1.TRACE_DATA_INTDataTable
+        m_dtTraceDatetime = New DataSet1.TRACE_DATA_DATETIMEDataTable
+        m_dtSettingColumns = New DataSet1.V_SETTING_COLUMNSDataTable
+        'm_objPivotGrid = New ctrlPivotGrid
+        m_taSerialNoView = New DataSet1TableAdapters.SERIAL_NO_PART_NO_SHOWTableAdapter
+        'm_taSerialNoView = New DataSet1TableAdapters.ENGINE_LISTTableAdapter
+        m_taTraceString = New DataSet1TableAdapters.TRACE_DATA_STRTableAdapter
+        m_taTraceInteger = New DataSet1TableAdapters.TRACE_DATA_INTTableAdapter
+        m_taTraceDatetime = New DataSet1TableAdapters.TRACE_DATA_DATETIMETableAdapter
+        m_taSettingColumns = New DataSet1TableAdapters.V_SETTING_COLUMNSTableAdapter
+
+    End Sub
+
+    Private Sub frmWorkingDataShow_Button1_Click(sender As Object, e As EventArgs) Handles btnHistory.Click
+        Dim inEngineId As Integer
+        'Private frmShow As frmWorkingDataShow
+        Dim frmShow = New frmSerialNo_PartNo_History
+        'Try/Catch exception in every event, not in every function
+        Try
+            'LoadData()
+            If CtrlPivotGrid1.SelectedRows.Count = 1 Then
+                inEngineId = CtrlPivotGrid1.SelectedRows(0).Cells("ENGINE_ID").Value
+                'frmShow.pp_sphMAX_REV_NO = CtrlPivotGrid1.SelectedRows(0).Cells("ENGINE_ID").Value
+                frmShow.pp_sphENGINE_ID = inEngineId
+            End If
+            'MsgBox(inEngineId.ToString)
+            frmShow.Show()
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+    End Sub
+End Class

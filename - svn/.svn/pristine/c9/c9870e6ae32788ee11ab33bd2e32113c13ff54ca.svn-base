@@ -1,0 +1,126 @@
+﻿Public Class frmSearchByModelCodeLotNo
+
+    Private Sub frmSearchByModelCodeLotNo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TextBoxHeading.Text = "Search by Model code + Lot No."
+
+        'modGlobalVariables.searchBy = modGlobalVariables.SEARCH_BY.MODEL_CODE_LOT_NO
+        Me.TextBoxIn1.Text = "160JYCIE"
+        Me.TextBoxIn2.Text = "0005"
+    End Sub
+
+
+    Protected Overrides Sub ButtonOK_Click(sender As Object, e As EventArgs)
+        'GlobalVariables.reset()
+        modGlobalVariables.reset()
+
+
+
+        'GlobalVariables.in_engineNo = TextBoxIn1.Text
+        'modGlobalVariables.in_engineNo = TextBoxIn1.Text
+        modGlobalVariables.arrIn.Add(TextBoxIn1.Text)
+        modGlobalVariables.arrIn.Add(TextBoxIn2.Text)
+
+        modGlobalVariables.searchBy = modGlobalVariables.SEARCH_BY.MODEL_CODE_LOT_NO
+
+
+        frmSelectDataType.Show()
+
+        Me.Close()
+
+    End Sub
+
+    Protected Overrides Sub moreShown()
+        'Me.SuspendLayout()
+        MyBase.moreShown()
+
+        'With Me.TableLayoutPanel1
+        '.Top = Me.Panel2.Top + (Me.Panel2.Height - .Height) / 2
+        '.Left = Me.Panel2.Left + (Me.Panel2.Width - .Width) / 2
+        'End With
+
+
+        Dim Panel3 As Panel = New System.Windows.Forms.Panel
+
+
+
+        Me.Controls.Add(Panel3)
+
+        With Panel3
+            .Width = Me.TextBoxHeading.Width
+            .Top = Me.TextBoxHeading.Top + Me.TextBoxHeading.Height + Me.Height * 0.1
+            .Left = Me.TextBoxHeading.Left
+
+
+            .Height = Me.Height - .Top - Me.Panel1.Height - Me.Height * 0.1
+
+            '.Visible = True
+
+            .ForeColor = Color.FromArgb(25, Color.Navy)
+            .BackColor = Color.Transparent
+            '.BackColor = Color.FromArgb(25, Color.Navy)
+            '.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            .BorderStyle = System.Windows.Forms.BorderStyle.None
+
+            '.Controls.Add(Me.TableLayoutPanel1)
+
+
+            Dim myGraphics As Graphics
+            'dimension variables of local scope
+
+
+            'return the current form as a drawing surface  
+
+            'myGraphics = Graphics.FromHwnd(ActiveForm().Handle)
+            myGraphics = Me.CreateGraphics
+            'myGraphics = Graphics.FromHwnd(Me.Handle)
+
+            Dim intLineTickness As Double = 5
+            Dim myPen As New Pen(color:=Color.Blue, Width:=intLineTickness)
+            DrawRoundedRectangle(myGraphics,
+                                .Left - intLineTickness,
+                                .Top - intLineTickness,
+                                .Width - 1 + 2 * intLineTickness,
+                                .Height - 1 + 2 * intLineTickness, .Height * 0.3, myPen)
+
+
+            'DrawRoundedRectangle(myGraphics, 0, .Top, .Width - 1, .Height - 1, .Height * 0.3, myPen)
+
+            '.Height = 5
+            'myGraphics
+            .Visible = False
+
+
+
+
+            '.Visible = False
+
+        End With
+
+        With Me.TableLayoutPanel1
+            .Top = (.Parent.Height - .Height) / 2
+            .Left = (.Parent.Width - .Width) / 2
+            '.BackColor = Color.FromArgb(25, Color.Navy)
+            .BackColor = Color.Transparent
+            '.Top = 0
+            '.Left = 0
+            .Visible = True
+        End With
+
+        With Me.Panel2
+            .Width = 0
+            .Height = 0
+
+            '.Visible = False
+        End With
+
+
+
+        Me.Controls.Remove(Panel3)
+        Panel3.Dispose()
+        'Me.Refresh()
+        Me.ResumeLayout()
+        ' Me.Invalidate()
+
+    End Sub
+
+End Class

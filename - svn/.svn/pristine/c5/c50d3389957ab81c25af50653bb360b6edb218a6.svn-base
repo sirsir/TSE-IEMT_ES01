@@ -1,0 +1,169 @@
+﻿Public Class frmProductionDateSearch
+    'Dim m_taEngineList As DataSet1TableAdapters.ENGINE_LISTTableAdapter
+
+
+    Private Sub frmProductionDateSearch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+        
+            Me.Text = "PRODCUTION DATE Search"
+
+            'Me.CtrlPivotGrid1.MultiSelect = False
+            InitializeControls()
+
+            'show bottom buttons
+            Dim hCtrls As New Hashtable
+            hCtrls("ButtonOK") = 0.5
+            hCtrls("ButtonMAINMENU") = 0.9
+            hCtrls("ButtonPRINT") = 0.7
+            'hCtrls("GroupBoxSELECTBY") = 0.1
+            hCtrls("PanelSelectBy") = 0.1
+
+
+
+            ShowOnlyControls(hCtrls)
+
+
+
+
+            '-------- Initialize table
+
+
+
+            m_dtWorkingString = Nothing
+            m_dtWorkingInteger = Nothing
+            m_dtWorkingDatetime = Nothing
+            m_taSettingColumns = Nothing
+
+            'MsgBox(modGlobalVariables.searchBy)
+
+
+            If modGlobalVariables.searchBy = modGlobalVariables.SEARCH_BY.LINE_ON_TIME__ASM_DATE Then
+                'm_dtEngineList = m_taEngineList.GetDataByEngineNo(modGlobalVariables.in_engineNo)
+                'm_dtEngineList = m_taEngineList.GetDataByEngineNo(modGlobalVariables.arrIn(0))
+
+                'to see function
+                'm_taEngineList = New DataSet1TableAdapters.ENGINE_LISTTableAdapter
+
+                m_dtEngineList = m_taEngineList.GetDataByLINE_ON_TIME(modGlobalVariables.arrIn(0), modGlobalVariables.arrIn(1))
+
+
+
+            End If
+
+
+            'm_dtWorkingString = m_taWorkingString.GetDataByWorkingTypeId(11)
+            'm_dtWorkingInteger = m_taWorkingInteger.GetDataByWorkingTypeId(11)
+            'm_dtWorkingDatetime = m_taWorkingDatetime.GetDataByWorkingTypeId(11)
+            'm_dtSettingColumns = m_taSettingColumns.GetWorkingColumns(11)
+            'Dim strHiddenColNames() As String = {"ENGINE_ID"}
+            'Dim strHiddenColNames() As String = {"ENGINE_NO", "MODEL_CODE", "LOT_NO", "UNIT_NO", "ENGINE_TYPE", "ENGINE_ASM_NO", "LINE_ON_TIME", "LINE_OFF_TIME", "BOOK", "YEAR", "AT_MT", "EMISSION", "INJ_MODEL_CODE"}
+            'Dim strHiddenColNames() As String = {"LINE_ON_TIME", "LINE_OFF_TIME", "ENGINE_NO", "MODEL_CODE", "LOT_NO"}
+            strHiddenColNames = {"LINE_ON_TIME", "LINE_OFF_TIME", "ENGINE_NO", "MODEL_CODE", "LOT_NO"}
+
+
+            LoadData(m_dtEngineList _
+                                           , m_dtWorkingString _
+                                           , m_dtWorkingInteger _
+                                           , m_dtWorkingDatetime _
+                                           , m_dtSettingColumns _
+                                           , {"ID"} _
+                                           , "WORKING_COLUMNS_ID" _
+                                           , {"ENGINE_ID"} _
+                                           , "DATA" _
+                                           , strHiddenColNames)
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+    End Sub
+
+    Protected Overrides Sub InitializeVariables()
+        ' Add any initialization after the InitializeComponent() call.
+        If modGlobalVariables.tabletype = modGlobalVariables.TABLE2SHOW.ENGINE_LIST__ProductionDateSearch Then
+            m_dtEngineList = New DataSet1.ENGINE_LISTDataTable
+        End If
+
+        m_dtWorkingString = New DataSet1.WORKING_DATA_STRDataTable
+        m_dtWorkingInteger = New DataSet1.WORKING_DATA_INTDataTable
+        m_dtWorkingDatetime = New DataSet1.WORKING_DATA_DATETIMEDataTable
+        m_dtSettingColumns = New DataSet1.V_SETTING_COLUMNSDataTable
+        'm_objPivotGrid = New ctrlPivotGrid
+        If modGlobalVariables.tabletype = modGlobalVariables.TABLE2SHOW.ENGINE_LIST__ProductionDateSearch Then
+            m_taEngineList = New DataSet1TableAdapters.ENGINE_LISTTableAdapter
+
+            'm_taEngineList = DirectCast(New DataSet1TableAdapters.ENGINE_LISTTableAdapter, DataSet1TableAdapters.ENGINE_LISTTableAdapter)
+            'Dim m_taEngineList = DirectCast(New DataSet1TableAdapters.ENGINE_LISTTableAdapter, DataSet1TableAdapters.ENGINE_LISTTableAdapter)
+            'm_taEngineList.getdata
+        End If
+
+        m_taWorkingString = New DataSet1TableAdapters.WORKING_DATA_STRTableAdapter
+        m_taWorkingInteger = New DataSet1TableAdapters.WORKING_DATA_INTTableAdapter
+        m_taWorkingDatetime = New DataSet1TableAdapters.WORKING_DATA_DATETIMETableAdapter
+        m_taSettingColumns = New DataSet1TableAdapters.V_SETTING_COLUMNSTableAdapter
+    End Sub
+
+    Protected Overrides Sub ButtonOK_Click(sender As Object, e As EventArgs)
+        Try
+            Dim selectedRowCount As Integer = CtrlPivotGrid1.Rows.GetRowCount(DataGridViewElementStates.Selected)
+
+            If selectedRowCount > 0 Then
+                modGlobalVariables.reset()
+
+                If Me.LabelSELECTBY.Visible = True And Me.rdoLot.Checked = True Then
+
+                    modGlobalVariables.searchBy = modGlobalVariables.SEARCH_BY.MODEL_CODE_LOT_NO
+
+                    modGlobalVariables.arrIn.Add(CtrlPivotGrid1.SelectedRows(0).Cells("MODEL_CODE").Value.ToString())
+                    modGlobalVariables.arrIn.Add(CtrlPivotGrid1.SelectedRows(0).Cells("LOT_NO").Value.ToString())
+
+                ElseIf Me.LabelSELECTBY.Visible = True And Me.rdoUnit.Checked = True Then
+
+                    modGlobalVariables.searchBy = modGlobalVariables.SEARCH_BY.ENGINE_NO
+
+                    modGlobalVariables.arrIn.Add(CtrlPivotGrid1.SelectedRows(0).Cells("ENGINE_NO").Value.ToString())
+
+                End If
+
+                ''Dim i As Integer
+                ''For i = 0 To selectedRowCount - 1
+
+                ''    'modGlobalVariables.arrIn.Add(CtrlPivotGrid1.SelectedRows(i).Index.ToString())
+                ''    'sb.Append(dataGridView1.SelectedRows(i).Index.ToString())
+
+                ''    'modGlobalVariables.arrIn.Add(CtrlPivotGrid1.SelectedRows(i).Cells("ENGINE_NO").Value.ToString())
+                ''    modGlobalVariables.arrIn.Add(CtrlPivotGrid1.SelectedRows(i).Cells("MODEL_CODE").Value.ToString())
+                ''    modGlobalVariables.arrIn.Add(CtrlPivotGrid1.SelectedRows(i).Cells("LOT_NO").Value.ToString())
+
+                ''    'modGlobalVariables.arrIn.Add("wwww")
+
+
+                ''Next i
+
+                'MsgBox(clsStringUtilities.arraylist2string(modGlobalVariables.arrIn))
+
+
+                'modGlobalVariables.arrIn.Add(TextBoxIn1.Text)
+
+                Dim frm As New frmSelectDataType
+                If frm.ShowDialog() = Windows.Forms.DialogResult.Abort Then
+                    Me.DialogResult = Windows.Forms.DialogResult.Abort
+                    Me.Close()
+                End If
+
+                'Me.Close()
+                'Me.Dispose()
+
+
+            End If
+
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+        
+
+
+
+        'Me.Close()
+
+    End Sub
+
+End Class

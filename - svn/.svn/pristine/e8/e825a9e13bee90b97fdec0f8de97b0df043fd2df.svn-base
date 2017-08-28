@@ -1,0 +1,79 @@
+﻿Public Class frmSelectDataType
+
+    Private frmWD As frmWorkingData
+    Public Property pp_sdtENGINE_NO As String
+
+    Private Sub frmSelectDataType_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'ButtonOK.Visible = False
+        InitializeControls()
+
+
+
+        'show bottom buttons
+        Dim hCtrls As New Hashtable
+        'hCtrls("ButtonOK") = 0.5
+        hCtrls("ButtonMAINMENU") = 0.9
+        'hCtrls("ButtonPRINT") = 0.7
+        'hCtrls("GroupBoxSELECTBY") = 0.1
+
+        ShowOnlyControls(hCtrls)
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'GlobalVariables.in_datatype = "production data"
+
+        modGlobalVariables.tabletype = modGlobalVariables.TABLE2SHOW.ENGINE_LIST
+
+        frmProductionData.Show()
+
+
+        Me.Close()
+
+    End Sub
+
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        frmWD = New frmWorkingData
+        Try
+            If pp_sdtENGINE_NO <> Nothing Then
+                frmWD.pp_wdENGINE_NO = pp_sdtENGINE_NO
+                frmWD.Show()
+                Me.Close()
+            End If
+
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+
+    Protected Overrides Sub moreShown()
+
+        Me.TextBoxHeading.TextAlign = HorizontalAlignment.Center
+        Me.TextBoxHeading.BackColor = Color.FromArgb(0, 180, 180)
+        Me.TextBoxHeading.ForeColor = Color.FromArgb(255, 255, 255)
+
+        Me.TextBoxHeading.Width = Me.Width * 0.8
+
+        'Me.TextBoxHeading.Height = Me.TextBoxHeading.Height * 1.8
+        Me.TextBoxHeading.Margin = New System.Windows.Forms.Padding(Me.TextBoxHeading.Height * 2)
+        'Me.TextBoxHeading.Size = New System.Drawing.Size(Me.TextBoxHeading.Width, Me.TextBoxHeading.Height * 3)
+
+
+        Me.TextBoxHeading.Top = Me.Height * 0.1
+        Me.TextBoxHeading.Left = (Me.Width - Me.TextBoxHeading.Width) / 2
+
+        With Me.TableLayoutPanel1
+            .Width = Me.TextBoxHeading.Width
+            .Top = Me.TextBoxHeading.Top + Me.TextBoxHeading.Height + Me.Height * 0.1
+            '.Left = Me.TextBoxHeading.Left
+            .Left = (Me.Width - .Width) / 2
+        End With
+
+
+        'Me.TextBoxHeading
+    End Sub
+
+
+End Class

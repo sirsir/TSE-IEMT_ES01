@@ -1,0 +1,78 @@
+﻿Public Class frmBase
+
+
+
+   
+
+    Protected Overridable Sub moreShown()
+
+    End Sub
+
+    Private Sub frmBase_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Me.WindowState = FormWindowState.Maximized
+
+        Me.Font = New Font(Me.Font.FontFamily, 22, Me.Font.Style)
+
+        Me.BackColor = Color.FromArgb(0, 220, 220)
+
+
+        With Me.Panel1
+            .AutoSize = False
+            .BorderStyle = BorderStyle.FixedSingle
+
+            '.Size = New System.Drawing.Size(0, 0)
+            .Height = Me.Height * 0.1
+        End With
+
+
+
+        Dim cControl As Control
+        For Each cControl In Me.Panel1.Controls
+            'MsgBox(cControl.Name)
+            If (TypeOf cControl Is TextBox) Then
+                'cControl.Text = "abc"
+                'cControl.Font = New Font(cControl.Font.FontFamily, 22, cControl.Font.Style)
+
+                'cControl.ForeColor = Color.FromArgb(255, 255, 255)
+
+            ElseIf (TypeOf cControl Is Button) Then
+                With cControl
+                    'cControl.AutoSize = True
+                    .Size = New System.Drawing.Size(0, 0)
+
+                    .AutoSize = True
+                    .Refresh()
+
+                    .Size = New System.Drawing.Size(.Parent.Width / 8, .Parent.Height * 0.6)
+
+                    '.Margin = New Padding(0, 0, 0, 0)
+                    '.Top = (.Parent.Height) / 2 - .Height / 2
+                    .Top = (.Parent.Height / 2) - (.Height / 2)
+                    If .Name = "ButtonOK" Then
+                        .Left = (.Parent.Width / 2) - (.Width / 2)
+                    End If
+                End With
+
+                cControl.Font = New Font(Me.Font.FontFamily, 15, Me.Font.Style)
+
+                cControl.BackColor = Color.FromArgb(0, 100, 255)
+                cControl.ForeColor = Color.FromArgb(255, 255, 255)
+
+                
+
+
+            End If
+
+
+        Next cControl
+
+
+        moreShown()
+
+
+    End Sub
+
+    Protected Overridable Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
+
+    End Sub
+End Class

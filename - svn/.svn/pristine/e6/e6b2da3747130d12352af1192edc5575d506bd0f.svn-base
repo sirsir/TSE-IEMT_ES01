@@ -1,0 +1,142 @@
+﻿Public Class frmSerialNo_PartNo_Search
+
+    Private frmSPS As frmSerialNo_PartNo_Search
+
+    Private Sub frmSerialNo_PartNo_Search_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DataSet1.FOR_CHECK_LIST_BOX' table. You can move, or remove it, as needed.
+        Try
+            rbnCylenderBlock.Checked = True
+            checkRadio(False)
+
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+    Private Sub checkRadio(pCheck As Boolean)
+        If pCheck Then
+            chbConnRod1.Enabled = True
+            chbConnRod2.Enabled = True
+            chbConnRod4.Enabled = True
+            chbConnRod3.Enabled = True
+
+            chbConnRod1.Checked = True
+        Else
+            chbConnRod1.Enabled = False
+            chbConnRod2.Enabled = False
+            chbConnRod4.Enabled = False
+            chbConnRod3.Enabled = False
+
+            chbConnRod1.Checked = False
+            chbConnRod2.Checked = False
+            chbConnRod4.Checked = False
+            chbConnRod3.Checked = False
+
+        End If
+    End Sub
+
+    Private Sub RadioButton2_Click(sender As Object, e As EventArgs) Handles rbnConnRod.Click
+        checkRadio(True)
+    End Sub
+
+    Private Sub CheckBox1_Click(sender As Object, e As EventArgs) Handles chbConnRod1.Click
+        chbConnRod2.Checked = False
+        chbConnRod4.Checked = False
+        chbConnRod3.Checked = False
+    End Sub
+
+    Private Sub CheckBox2_Click(sender As Object, e As EventArgs) Handles chbConnRod2.Click
+        chbConnRod1.Checked = False
+        chbConnRod4.Checked = False
+        chbConnRod3.Checked = False
+    End Sub
+
+    Private Sub CheckBox3_Click(sender As Object, e As EventArgs) Handles chbConnRod4.Click
+        chbConnRod1.Checked = False
+        chbConnRod2.Checked = False
+        chbConnRod3.Checked = False
+    End Sub
+
+    Private Sub CheckBox4_Click(sender As Object, e As EventArgs) Handles chbConnRod3.Click
+        chbConnRod2.Checked = False
+        chbConnRod4.Checked = False
+        chbConnRod1.Checked = False
+    End Sub
+
+    Private Sub RadioButton1_Click(sender As Object, e As EventArgs) Handles rbnCylenderBlock.Click
+        checkRadio(False)
+    End Sub
+
+    Private Sub RadioButton3_Click(sender As Object, e As EventArgs) Handles rbnCylenderHead.Click
+        checkRadio(False)
+    End Sub
+
+    Private Sub RadioButton4_Click(sender As Object, e As EventArgs) Handles rbnCrankShaft.Click
+        checkRadio(False)
+    End Sub
+
+    Private Sub RadioButton5_Click(sender As Object, e As EventArgs) Handles rbnCamShaftIn.Click
+        checkRadio(False)
+    End Sub
+
+    Private Sub RadioButton6_Click(sender As Object, e As EventArgs) Handles rbnCamShaftEx.Click
+        checkRadio(False)
+    End Sub
+
+    Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
+        'Dim frmSPS = New frmSerialNo_PartNo_Show_old
+        Dim frmSPS As frmSerialNo_PartNo_Show
+        Try
+            frmSPS = New frmSerialNo_PartNo_Show
+            If rbnCylenderBlock.Checked Then
+                ' TRACE_COLUMNS_ID = 1
+                frmSPS.pp_spsTRACE_COLUMNS_ID = 1
+            ElseIf rbnCylenderHead.Checked Then
+                ' TRACE_COLUMNS_ID = 2
+                frmSPS.pp_spsTRACE_COLUMNS_ID = 2
+            ElseIf rbnCrankShaft.Checked Then
+                ' TRACE_COLUMNS_ID = 3
+                frmSPS.pp_spsTRACE_COLUMNS_ID = 3
+            ElseIf rbnCamShaftIn.Checked Then
+                ' TRACE_COLUMNS_ID = 8
+                frmSPS.pp_spsTRACE_COLUMNS_ID = 8
+            ElseIf rbnCamShaftEx.Checked Then
+                ' TRACE_COLUMNS_ID = 9
+                frmSPS.pp_spsTRACE_COLUMNS_ID = 9
+            ElseIf chbConnRod1.Checked Then
+                ' TRACE_COLUMNS_ID = 4
+                frmSPS.pp_spsTRACE_COLUMNS_ID = 4
+            ElseIf chbConnRod2.Checked Then
+                ' TRACE_COLUMNS_ID = 5
+                frmSPS.pp_spsTRACE_COLUMNS_ID = 5
+            ElseIf chbConnRod3.Checked Then
+                ' TRACE_COLUMNS_ID = 6
+                frmSPS.pp_spsTRACE_COLUMNS_ID = 6
+            ElseIf chbConnRod4.Checked Then
+                ' TRACE_COLUMNS_ID = 7
+                frmSPS.pp_spsTRACE_COLUMNS_ID = 7
+            Else
+                frmSPS.pp_spsTRACE_COLUMNS_ID = Nothing
+            End If
+
+            If frmSPS.pp_spsTRACE_COLUMNS_ID <> Nothing Then
+
+                frmSPS.pp_spsSERIAL_NO = txtSerialNo.Text
+                If frmSPS.pp_spsSERIAL_NO <> Nothing Then
+
+                    frmSPS.Show()
+                    'Me.Close()
+                Else
+                    MsgBox("Please SERIAL No.")
+                End If
+
+            Else
+                MsgBox("Please Select Past.")
+            End If
+
+        Catch ex As Exception
+            modLogger.HandleException(ex)
+        End Try
+    End Sub
+End Class

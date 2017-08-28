@@ -1,0 +1,24 @@
+﻿Public Class frmSearchByEngineNo
+
+    Private Sub frmSearchByEngineNo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TextBoxHeading.Text = "Search by ENGINE No."
+
+        TextBoxIn1.Text = "NL9506"
+    End Sub
+
+
+    Protected Overrides Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
+        'GlobalVariables.reset()
+        modGlobalVariables.reset()
+
+        'GlobalVariables.in_engineNo = TextBoxIn1.Text
+        'modGlobalVariables.in_engineNo = TextBoxIn1.Text
+        modGlobalVariables.arrIn.Add(TextBoxIn1.Text)
+
+        frmSelectDataType.Show()
+
+        'Me.Close()
+
+    End Sub
+
+End Class

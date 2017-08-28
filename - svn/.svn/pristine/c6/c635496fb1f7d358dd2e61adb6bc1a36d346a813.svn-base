@@ -1,0 +1,64 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmSearch
+    'Inherits System.Windows.Forms.Form
+    Inherits frmBase
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.TextBoxHeading = New System.Windows.Forms.TextBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.SuspendLayout()
+        '
+        'TextBoxHeading
+        '
+        Me.TextBoxHeading.Location = New System.Drawing.Point(42, 32)
+        Me.TextBoxHeading.Name = "TextBoxHeading"
+        Me.TextBoxHeading.Size = New System.Drawing.Size(778, 41)
+        Me.TextBoxHeading.TabIndex = 0
+        '
+        'Panel2
+        '
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Panel2.Location = New System.Drawing.Point(41, 134)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(607, 134)
+        Me.Panel2.TabIndex = 2
+        '
+        'frmSearch
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(17.0!, 33.0!)
+        Me.ClientSize = New System.Drawing.Size(1348, 665)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.TextBoxHeading)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!)
+        Me.MinimumSize = New System.Drawing.Size(1364, 704)
+        Me.Name = "frmSearch"
+        Me.Controls.SetChildIndex(Me.TextBoxHeading, 0)
+        Me.Controls.SetChildIndex(Me.Panel2, 0)
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents TextBoxHeading As System.Windows.Forms.TextBox
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+
+End Class

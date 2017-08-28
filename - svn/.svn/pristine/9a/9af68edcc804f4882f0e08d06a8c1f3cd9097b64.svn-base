@@ -1,0 +1,78 @@
+﻿Public Class frmMainMenu
+
+    Private Sub btnEngineNo_Click(sender As Object, e As EventArgs) Handles btnEngineNo.Click
+        'If chkPrd Then
+        '    'Me.Hide()
+        '    logger.Log(Common.Logger.MessageType.NormalLog, Me.GetType.Name, "btnF1_Click", "Open Production Screen", "")
+        '    ProductionData.ShowDialog()
+        'Else
+        '    MessageBox.Show("No data in Production!!!")
+        'End If
+        'Try
+        '    SelectCompany()
+        'Catch ex As Exception
+        '    LogException(ex)
+        'End Tryv
+        frmSearchByEngineNo.ShowDialog()
+        'Me.Close()
+        'Me.Visible = False
+
+    End Sub
+
+    Private Sub frmMainMenu_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        Select Case e.KeyData
+            Case Keys.F1
+                btnEngineNo_Click(sender, e)
+            Case Keys.F2
+                btnModelCode_Click(sender, e)
+            Case Keys.F3
+                btnProductionDate_Click(sender, e)
+            Case Keys.F4
+                btnSerialNo_Click(sender, e)
+                'Case Keys.F5
+                '    btnProductionDatePart_Click(sender, e)
+                'Case Keys.F6
+                '    btnShortBlock_Click(sender, e)
+            Case Keys.F7
+                btnClose_Click(sender, e)
+
+            Case Keys.F12
+                frmClentSample.Show()
+        End Select
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Dim response As MsgBoxResult
+        response = MsgBox("Do you want to close form?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm")
+        If response = MsgBoxResult.Yes Then
+            'Me.Visible = False
+        ElseIf response = MsgBoxResult.No Then
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub Form_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        Dim response As MsgBoxResult
+        response = MsgBox("Do you want to close?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirm")
+        If response = MsgBoxResult.Yes Then
+            'Me.Visible = False
+        ElseIf response = MsgBoxResult.No Then
+            e.Cancel = True
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub btnModelCode_Click(sender As Object, e As EventArgs) Handles btnModelCode.Click
+        frmSearchByModelCodeLotNo.ShowDialog()
+        'Me.Visible = False
+    End Sub
+
+    Private Sub btnProductionDate_Click(sender As Object, e As EventArgs) Handles btnProductionDate.Click
+        frmSearchByAsmDate.ShowDialog()
+        'Me.Visible = False
+    End Sub
+
+    Private Sub btnSerialNo_Click(sender As Object, e As EventArgs) Handles btnSerialNo.Click
+        frmSerialNo_PartNo_Search.ShowDialog()
+    End Sub
+End Class

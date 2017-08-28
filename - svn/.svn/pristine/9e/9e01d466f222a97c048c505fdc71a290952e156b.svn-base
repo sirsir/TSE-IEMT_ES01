@@ -1,0 +1,32 @@
+﻿Public Class frmSearchByModelCodeLotNo
+
+    Private Sub frmSearchByModelCodeLotNo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TextBoxHeading.Text = "Search by Model code + Lot No."
+
+        'modGlobalVariables.searchBy = modGlobalVariables.SEARCH_BY.MODEL_CODE_LOT_NO
+        Me.TextBoxIn1.Text = "160JYCIE"
+        Me.TextBoxIn2.Text = "0005"
+    End Sub
+
+
+    Protected Overrides Sub ButtonOK_Click(sender As Object, e As EventArgs) Handles ButtonOK.Click
+        'GlobalVariables.reset()
+        modGlobalVariables.reset()
+
+
+
+        'GlobalVariables.in_engineNo = TextBoxIn1.Text
+        'modGlobalVariables.in_engineNo = TextBoxIn1.Text
+        modGlobalVariables.arrIn.Add(TextBoxIn1.Text)
+        modGlobalVariables.arrIn.Add(TextBoxIn2.Text)
+
+        modGlobalVariables.searchBy = modGlobalVariables.SEARCH_BY.MODEL_CODE_LOT_NO
+
+
+        frmSelectDataType.Show()
+
+        Me.Close()
+
+    End Sub
+
+End Class

@@ -1,0 +1,2 @@
+C:\Users\Administrator\Desktop\PDT Project\sample\PSIS-SERVER\bin\Debug\PSIS-SERVER.exe.config
+C:\Users\Administrator\Desktop\IEMT_ES01\sample\PSIS-SERVER\bin\Debug\PSIS-SERVER.exe.config

@@ -1,0 +1,191 @@
+﻿Public Class frmProductionManualInputWorkingData
+    'Dim m_taEngineList As DataSet1TableAdapters.ENGINE_LISTTableAdapter
+
+    Private m_blnLoadCompleted As Boolean = False
+
+    Private Sub frmProductionManualInputWorkingData_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+
+            Me.Text = "MANUAL INPUT WORKING DATA"
+
+            InitializeControls()
+
+            Dim LabelEngineData As New Label
+            Me.Controls.Add(LabelEngineData)
+            With LabelEngineData
+                .Font = New Font(Me.Font.FontFamily, CInt(Me.Font.Size * 0.8), Me.Font.Style)
+                .AutoSize = True
+                .Text = ""
+                '.Location = New Point(Me.Width * 0.5 - .Width * 0.5, .Height * 0.5 + .Height * 0.5)
+                .Location = New Point(Me.Width * 0.5 - .Width * 0.5, 0)
+                CtrlPivotGrid1.Height = CtrlPivotGrid1.Height + .Height + .Height * 0.5
+            End With
+
+
+
+            'CtrlPivotGrid1.ReadOnly = False
+            'CtrlPivotGrid1.EditMode = DataGridViewEditMode.EditOnEnter
+
+            Me.BackColor = Color.DarkKhaki
+
+            Dim hCtrls As New Hashtable
+            'hCtrls("ButtonManualInput") = 0.3
+            'hCtrls("ButtonMAINMENU") = 0.9
+            hCtrls("ButtonUPDATE") = 0.7
+            hCtrls("ButtonCANCEL") = 0.9
+
+
+            ShowOnlyControls(hCtrls)
+
+
+            '-------- Initialize table
+
+            'm_dtWorkingString = Nothing
+            'm_dtWorkingInteger = Nothing
+            'm_dtWorkingDatetime = Nothing
+            'm_taSettingColumns = Nothing
+
+            'MsgBox(modGlobalVariables.searchBy)
+
+
+            If modGlobalVariables.searchBy = modGlobalVariables.SEARCH_BY.ENGINE_NO Then
+                'm_dtEngineList = m_taEngineList.GetDataByEngineNo(modGlobalVariables.in_engineNo)
+
+                m_dtEngineList = DirectCast(m_taEngineList, DataSet1TableAdapters.V_WORKING_DATA_STATICTableAdapter).GetDataByWorkingTypeId_EngineNo_REV(modGlobalVariables.workingtypeID, modGlobalVariables.arrIn(0), modGlobalVariables.arrIn(1))
+
+                m_dtWorkingString = m_taWorkingString.GetDataByWorkingTypeId_EngineNo_REV(modGlobalVariables.workingtypeID, modGlobalVariables.arrIn(0), modGlobalVariables.arrIn(1))
+                m_dtWorkingInteger = m_taWorkingInteger.GetDataByWorkingTypeId_EngineNo_REV(modGlobalVariables.workingtypeID, modGlobalVariables.arrIn(0), modGlobalVariables.arrIn(1))
+                m_dtWorkingDatetime = m_taWorkingDatetime.GetDataByWorkingTypeId_EngineNo_REV(modGlobalVariables.workingtypeID, modGlobalVariables.arrIn(0), modGlobalVariables.arrIn(1))
+                m_dtSettingColumns = m_taSettingColumns.GetWorkingColumns(modGlobalVariables.workingtypeID)
+
+                'm_dtEngineList.Clear()
+
+                'm_dtEngineList.
+
+
+            ElseIf modGlobalVariables.searchBy = modGlobalVariables.SEARCH_BY.MODEL_CODE_LOT_NO Then
+                'Dim m_taEngineList = New DataSet1TableAdapters.ENGINE_LISTTableAdapter
+                'MsgBox(modGlobalVariables.arrIn(1))
+
+                m_dtEngineList = DirectCast(m_taEngineList, DataSet1TableAdapters.V_WORKING_DATA_STATICTableAdapter).GetDataByWorkingID_ModelCode_LotNo(workingtypeID, modGlobalVariables.arrIn(0), modGlobalVariables.arrIn(1))
+
+                'm_dtEngineList = m_taEngineList.GetDataByModelCodeLotNo(modGlobalVariables.arrIn(0), modGlobalVariables.arrIn(1))
+                'MsgBox("-----Waiting for BELL")
+                m_dtWorkingString = m_taWorkingString.GetDataByWORKING_MODELCODE_LOTNO(modGlobalVariables.workingtypeID, modGlobalVariables.arrIn(0), modGlobalVariables.arrIn(1))
+                m_dtWorkingInteger = m_taWorkingInteger.GetDataByWORKING_MODELCODE_LOTNO(modGlobalVariables.workingtypeID, modGlobalVariables.arrIn(0), modGlobalVariables.arrIn(1))
+                m_dtWorkingDatetime = m_taWorkingDatetime.GetDataByWORKING_MODELCODE_LOTNO(modGlobalVariables.workingtypeID, modGlobalVariables.arrIn(0), modGlobalVariables.arrIn(1))
+                m_dtSettingColumns = m_taSettingColumns.GetWorkingColumns(modGlobalVariables.workingtypeID)
+
+                'm_dtEngineList = m_taEngineList.GetDataByModelCodeLotNo(modGlobalVariables.arrIn(0), modGlobalVariables.arrIn(1))
+                'm_dtEngineList = m_taEngineList.GetDataByEngineNo("NL9506")
+            End If
+
+
+            'm_dtWorkingString = m_taWorkingString.GetDataByWorkingTypeId(11)
+            'm_dtWorkingInteger = m_taWorkingInteger.GetDataByWorkingTypeId(11)
+            'm_dtWorkingDatetime = m_taWorkingDatetime.GetDataByWorkingTypeId(11)
+            'm_dtSettingColumns = m_taSettingColumns.GetWorkingColumns(11)
+            'Dim strHiddenColNames() As String = {"ENGINE_ID"}
+            strHiddenColNames = {""}
+            ' , {"ENGINE_ID", "REV_NO"} _
+
+
+
+            LoadData(m_dtEngineList _
+                                               , m_dtWorkingString _
+                                               , m_dtWorkingInteger _
+                                               , m_dtWorkingDatetime _
+                                               , m_dtSettingColumns _
+                                               , {"ENGINE_ID", "REV_NO"} _
+                                               , "WORKING_COLUMNS_ID" _
+                                               , {"ENGINE_ID", "REV_NO"} _
+                                               , "DATA" _
+                                               , strHiddenColNames _
+                                               , False)
+
+            'CtrlPivotGrid1.SetDataSource(m_dtEngineView _
+            '                               , m_dtWorkingString _
+            '                               , m_dtWorkingInteger _
+            '                               , m_dtWorkingDatetime _
+            '                               , m_dtSettingColumns _
+            '                               , {"ID"} _
+            '                               , "WORKING_COLUMNS_ID" _
+            '                               , {"ENGINE_ID"} _
+            '                               , "DATA" _
+            '                               , strHiddenColNames)
+
+
+            Dim datInputDate As DateTime = Today
+            If m_dtWorkingString.Rows.Count > 0 Then
+                datInputDate = m_dtWorkingString(0).REVISE_DATE
+            ElseIf m_dtWorkingInteger.Rows.Count > 0 Then
+                datInputDate = m_dtWorkingInteger(0).REVISE_DATE
+            ElseIf m_dtWorkingDatetime.Rows.Count > 0 Then
+                datInputDate = m_dtWorkingDatetime(0).REVISE_DATE
+            End If
+            With LabelEngineData
+                .Text = String.Format("ENGINE No.[{0}]  MODEL CODE[{1}]  LOT NO.[{2}]  ENG ASM No.[{3}]  INPUT DATE[{4}]", _
+                                                 CtrlPivotGrid1.Item("ENGINE_NO", 0).Value, _
+                                                 CtrlPivotGrid1.Item("MODEL_CODE", 0).Value, _
+                                                 CtrlPivotGrid1.Item("LOT_NO", 0).Value, _
+                                                 CtrlPivotGrid1.Item("ENGINE_ASM_NO", 0).Value, _
+                                                 datInputDate.ToString("yyyMMdd") _
+                                                 )
+
+
+
+
+                .Location = New Point(Me.Width * 0.5 - .Width * 0.5, 0)
+            End With
+            CtrlPivotGrid1.SelectionMode = DataGridViewSelectionMode.CellSelect
+
+            m_blnLoadCompleted = True
+        Catch ex As Exception
+            modLogger.HandleException(ex, True)
+        End Try
+    End Sub
+
+
+    Protected Overrides Sub InitializeVariables()
+        ' Add any initialization after the InitializeComponent() call.
+        m_taEngineList = New DataSet1TableAdapters.V_WORKING_DATA_STATICTableAdapter
+        m_dtEngineList = New DataSet1.V_WORKING_DATA_STATICDataTable
+
+        m_dtWorkingString = New DataSet1.WORKING_DATA_STRDataTable
+        m_dtWorkingInteger = New DataSet1.WORKING_DATA_INTDataTable
+        m_dtWorkingDatetime = New DataSet1.WORKING_DATA_DATETIMEDataTable
+        m_dtSettingColumns = New DataSet1.V_SETTING_COLUMNSDataTable
+        'm_objPivotGrid = New ctrlPivotGrid
+
+
+        m_taWorkingString = New DataSet1TableAdapters.WORKING_DATA_STRTableAdapter
+        m_taWorkingInteger = New DataSet1TableAdapters.WORKING_DATA_INTTableAdapter
+        m_taWorkingDatetime = New DataSet1TableAdapters.WORKING_DATA_DATETIMETableAdapter
+        m_taSettingColumns = New DataSet1TableAdapters.V_SETTING_COLUMNSTableAdapter
+    End Sub
+
+    Public Sub ctrlPivotGrid1_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs) Handles CtrlPivotGrid1.CellPainting
+        If m_blnLoadCompleted Then
+            e.Handled = False
+        End If
+    End Sub
+
+    'Public Sub ctrlPivotGrid_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles CtrlPivotGrid1.CellValueChanged
+
+    'End Sub
+
+    Protected Overrides Sub frmBase_FormClosed(sender As Object, e As FormClosedEventArgs)
+        
+
+    End Sub
+
+
+    Protected Overrides Sub ButtonCANCEL_Click(sender As Object, e As EventArgs) Handles ButtonCANCEL.Click
+        frmWorkingData.Visible = True
+        frmWorkingData.Activate()
+
+        Me.Close()
+
+    End Sub
+
+End Class
